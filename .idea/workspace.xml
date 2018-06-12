@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6df3889a-11fc-420e-b90d-2d7fe8b87afc" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/class/statkiGUI/BUGS" beforeDir="false" afterPath="$PROJECT_DIR$/class/statkiGUI/BUGS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/statkiGUI/ReleaseNotes" beforeDir="false" afterPath="$PROJECT_DIR$/class/statkiGUI/ReleaseNotes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/statkiGUI/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/class/statkiGUI/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/statkiGUI/docs/BUGS" beforeDir="false" afterPath="$PROJECT_DIR$/class/statkiGUI/docs/BUGS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/statkiGUI/docs/ReleaseNotes" beforeDir="false" afterPath="$PROJECT_DIR$/class/statkiGUI/docs/ReleaseNotes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/statkiGUI/docs/TODO" beforeDir="false" afterPath="$PROJECT_DIR$/class/statkiGUI/docs/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/BUGS" beforeDir="false" afterPath="$PROJECT_DIR$/docs/BUGS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/ReleaseNotes" beforeDir="false" afterPath="$PROJECT_DIR$/docs/ReleaseNotes" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Statek.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Statek.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/GUITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/GUITest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/StatekTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/StatekTest.java" afterDir="false" />
+    <list default="true" id="6df3889a-11fc-420e-b90d-2d7fe8b87afc" name="Default" comment="usunalem nieuzywana metode sprawdzCzyWlasnieZatopiony()">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,8 +25,17 @@
       <file leaf-file-name="TODO" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/TODO">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="880">
+              <caret line="40" column="122" selection-start-line="40" selection-start-column="122" selection-end-line="40" selection-end-column="122" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BUGS" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/BUGS">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="650">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+              <caret line="106" column="102" selection-start-line="106" selection-start-column="102" selection-end-line="106" selection-end-column="102" />
             </state>
           </provider>
         </entry>
@@ -60,14 +58,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-286">
-              <caret line="159" column="23" lean-forward="true" selection-start-line="159" selection-start-column="23" selection-end-line="159" selection-end-column="23" />
+            <state relative-caret-position="135">
+              <caret line="156" column="58" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="58" />
               <folding>
-                <element signature="e#7767#7768#0" expanded="true" />
-                <element signature="e#7853#7854#0" expanded="true" />
+                <element signature="e#7486#7487#0" expanded="true" />
+                <element signature="e#7572#7573#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StatekTestHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/StatekTestHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Statek.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Statek.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1180">
+              <caret line="236" selection-start-line="236" selection-end-line="236" />
+              <folding>
+                <element signature="e#679#680#0" expanded="true" />
+                <element signature="e#708#709#0" expanded="true" />
+                <element signature="e#1363#1364#0" expanded="true" />
+                <element signature="e#1394#1395#0" expanded="true" />
+                <element signature="e#6750#6751#0" expanded="true" />
+                <element signature="e#6775#6776#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -76,66 +100,17 @@
       <file leaf-file-name="ReleaseNotes" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/ReleaseNotes">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+            <state relative-caret-position="264">
+              <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="70" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Statek.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Statek.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5280">
-              <caret line="252" column="12" selection-start-line="252" selection-start-column="12" selection-end-line="252" selection-end-column="12" />
-              <folding>
-                <element signature="e#679#680#0" expanded="true" />
-                <element signature="e#708#709#0" expanded="true" />
-                <element signature="e#1363#1364#0" expanded="true" />
-                <element signature="e#1394#1395#0" expanded="true" />
-                <element signature="e#6609#6610#0" expanded="true" />
-                <element signature="e#6640#6641#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BUGS" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docs/BUGS">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="39" column="106" selection-start-line="39" selection-start-column="106" selection-end-line="39" selection-end-column="106" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mapa.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Mapa.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="173" column="5" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Pole.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Pole.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
-              <caret line="38" selection-start-line="38" selection-end-line="38" />
-              <folding>
-                <element signature="e#696#697#0" expanded="true" />
-                <element signature="e#711#712#0" expanded="true" />
-                <element signature="e#748#749#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StatekTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StatekTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/StatekTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="206" column="25" lean-forward="true" selection-start-line="206" selection-start-column="25" selection-end-line="206" selection-end-column="25" />
+            <state relative-caret-position="155">
+              <caret line="210" column="44" selection-start-line="210" selection-start-column="44" selection-end-line="210" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -161,8 +136,10 @@
       <find>Pole[] p=new</find>
       <find>Pole[] p=new Pole[3];</find>
       <find>poleO</find>
-      <find>ostatnioZatopiony</find>
       <find>ostatnioTrafiony</find>
+      <find>jestOst</find>
+      <find>ostatnioZatopiony</find>
+      <find>ostatni</find>
     </findStrings>
     <replaceStrings>
       <replace>Logger.getDeepDebugEnabled()</replace>
@@ -192,16 +169,17 @@
         <option value="$PROJECT_DIR$/GUI.java" />
         <option value="$PROJECT_DIR$/docs/LIMITATIONS" />
         <option value="$PROJECT_DIR$/tests/PoleTest.java" />
-        <option value="$PROJECT_DIR$/docs/KBD_SHORTCUTS" />
         <option value="$PROJECT_DIR$/src/Pole.java" />
-        <option value="$PROJECT_DIR$/tests/StatekTest.java" />
         <option value="$PROJECT_DIR$/tests/StatekTHelper.java" />
         <option value="$PROJECT_DIR$/tests/StatekTestHelper.java" />
+        <option value="$PROJECT_DIR$/src/Logger.java" />
+        <option value="$PROJECT_DIR$/docs/KBD_SHORTCUTS" />
         <option value="$PROJECT_DIR$/docs/TODO" />
-        <option value="$PROJECT_DIR$/src/Statek.java" />
-        <option value="$PROJECT_DIR$/docs/BUGS" />
         <option value="$PROJECT_DIR$/src/GUI.java" />
+        <option value="$PROJECT_DIR$/docs/BUGS" />
+        <option value="$PROJECT_DIR$/tests/StatekTest.java" />
         <option value="$PROJECT_DIR$/docs/ReleaseNotes" />
+        <option value="$PROJECT_DIR$/src/Statek.java" />
       </list>
     </option>
   </component>
@@ -271,7 +249,7 @@
   <component name="PropertiesComponent">
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
@@ -300,7 +278,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.GameLauncher">
+  <component name="RunManager" selected="Application.StatekTest">
     <configuration name="GameLauncher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -418,8 +396,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GameLauncher" />
         <item itemvalue="Application.StatekTest" />
+        <item itemvalue="Application.GameLauncher" />
         <item itemvalue="JUnit.StatekTest.sprawdzCzyZatopiony_FALSE" />
         <item itemvalue="JUnit.StatekTest.sprawdzCzyOstatnioZatopiony_TRUE" />
         <item itemvalue="JUnit.StatekTest.test_SetPoleGOODVALUE" />
@@ -437,6 +415,28 @@
       <option name="presentableId" value="Default" />
       <updated>1528726250663</updated>
     </task>
+    <task id="LOCAL-00001" summary="Usunalem metode wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony(boolean ostatnioTrafiony, boolean ostatnioZatopiony){">
+      <created>1528825738829</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1528825738829</updated>
+    </task>
+    <task id="LOCAL-00002" summary="usunalem zmienne ostatnioTrafiony i ostatnioZatopiony z klasy Statek">
+      <created>1528831951301</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1528831951302</updated>
+    </task>
+    <task id="LOCAL-00003" summary="usunalem nieuzywana metode sprawdzCzyWlasnieZatopiony()">
+      <created>1528832029982</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1528832029982</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -473,28 +473,29 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32905984" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.29719853" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32825485" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.29639888" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" auto_hide="true" id="Event Log" order="7" side_tool="true" weight="0.28116342" />
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.666205" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32886723" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32825485" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7627586" visible="true" weight="0.1764323" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.76038784" visible="true" weight="0.1764323" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32825485" />
       <window_info id="Learn" order="2" sideWeight="0.49593496" weight="0.3295302" />
-      <window_info id="Structure" order="1" sideWeight="0.23396881" side_tool="true" weight="0.1765625" />
+      <window_info id="Structure" order="1" sideWeight="0.23822714" side_tool="true" weight="0.1764323" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" sideWeight="0.23724137" side_tool="true" weight="0.1764323" />
+      <window_info id="Favorites" order="2" sideWeight="0.23961219" side_tool="true" weight="0.1764323" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.40166205" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.3296875" />
@@ -537,16 +538,15 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="Usunalem metode wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony(boolean ostatnioTrafiony, boolean ostatnioZatopiony){" />
+    <MESSAGE value="usunalem zmienne ostatnioTrafiony i ostatnioZatopiony z klasy Statek" />
+    <MESSAGE value="usunalem nieuzywana metode sprawdzCzyWlasnieZatopiony()" />
+    <option name="LAST_COMMIT_MESSAGE" value="usunalem nieuzywana metode sprawdzCzyWlasnieZatopiony()" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/tests/StatekTest.java</url>
-          <line>206</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="3" />
     </breakpoint-manager>
   </component>
@@ -595,8 +595,8 @@
             <element signature="e#708#709#0" expanded="true" />
             <element signature="e#1363#1364#0" expanded="true" />
             <element signature="e#1394#1395#0" expanded="true" />
-            <element signature="e#6609#6610#0" expanded="true" />
-            <element signature="e#6640#6641#0" expanded="true" />
+            <element signature="e#6750#6751#0" expanded="true" />
+            <element signature="e#6775#6776#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -624,8 +624,8 @@
             <element signature="e#708#709#0" expanded="true" />
             <element signature="e#1363#1364#0" expanded="true" />
             <element signature="e#1394#1395#0" expanded="true" />
-            <element signature="e#6609#6610#0" expanded="true" />
-            <element signature="e#6640#6641#0" expanded="true" />
+            <element signature="e#6750#6751#0" expanded="true" />
+            <element signature="e#6775#6776#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -805,13 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/StatekTestHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FabrykaStatkow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -819,27 +812,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/KBD_SHORTCUTS">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="53" selection-start-column="53" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/jre/lib/rt.jar!/sun/reflect/NativeMethodAccessorImpl.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Logger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#928#929#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -855,17 +831,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/StatekTest.java">
+    <entry file="file://$PROJECT_DIR$/src/Mapa.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="206" column="25" lean-forward="true" selection-start-line="206" selection-start-column="25" selection-end-line="206" selection-end-column="25" />
+        <state relative-caret-position="154">
+          <caret line="173" column="5" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/KBD_SHORTCUTS">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/docs/TODO">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="650">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
+        <state relative-caret-position="880">
+          <caret line="40" column="122" selection-start-line="40" selection-start-column="122" selection-end-line="40" selection-end-column="122" />
         </state>
       </provider>
     </entry>
@@ -883,50 +866,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mapa.java">
+    <entry file="file://$PROJECT_DIR$/src/Logger.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="173" column="5" selection-start-line="173" selection-start-column="5" selection-end-line="173" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/docs/BUGS">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="39" column="106" selection-start-line="39" selection-start-column="106" selection-end-line="39" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Statek.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5280">
-          <caret line="252" column="12" selection-start-line="252" selection-start-column="12" selection-end-line="252" selection-end-column="12" />
+        <state relative-caret-position="220">
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding>
-            <element signature="e#679#680#0" expanded="true" />
-            <element signature="e#708#709#0" expanded="true" />
-            <element signature="e#1363#1364#0" expanded="true" />
-            <element signature="e#1394#1395#0" expanded="true" />
-            <element signature="e#6609#6610#0" expanded="true" />
-            <element signature="e#6640#6641#0" expanded="true" />
+            <element signature="e#351#352#0" expanded="true" />
+            <element signature="e#386#387#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
+            <element signature="e#992#993#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docs/ReleaseNotes">
+    <entry file="file://$PROJECT_DIR$/tests/StatekTestHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+        <state relative-caret-position="242">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-286">
-          <caret line="159" column="23" lean-forward="true" selection-start-line="159" selection-start-column="23" selection-end-line="159" selection-end-column="23" />
+        <state relative-caret-position="135">
+          <caret line="156" column="58" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="58" />
           <folding>
-            <element signature="e#7767#7768#0" expanded="true" />
-            <element signature="e#7853#7854#0" expanded="true" />
+            <element signature="e#7486#7487#0" expanded="true" />
+            <element signature="e#7572#7573#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/BUGS">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="106" column="102" selection-start-line="106" selection-start-column="102" selection-end-line="106" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/ReleaseNotes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Statek.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1180">
+          <caret line="236" selection-start-line="236" selection-end-line="236" />
+          <folding>
+            <element signature="e#679#680#0" expanded="true" />
+            <element signature="e#708#709#0" expanded="true" />
+            <element signature="e#1363#1364#0" expanded="true" />
+            <element signature="e#1394#1395#0" expanded="true" />
+            <element signature="e#6750#6751#0" expanded="true" />
+            <element signature="e#6775#6776#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/StatekTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="155">
+          <caret line="210" column="44" selection-start-line="210" selection-start-column="44" selection-end-line="210" selection-end-column="44" />
         </state>
       </provider>
     </entry>

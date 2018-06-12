@@ -45,7 +45,7 @@ public class MapaGUI extends JPanel{
 			Toolkit tk = Toolkit.getDefaultToolkit();
 			Dimension d = tk.getScreenSize();
 
-		if (Logger.getDebugEnabled()) {
+		if (Logger.isDebugEnabled()) {
 			Logger.debug("Screen width = " + d.width);
 			Logger.debug("Screen height = " + d.height);
 			 }
@@ -92,14 +92,14 @@ public class MapaGUI extends JPanel{
 			}
 		}
 
-if (Logger.getDebugEnabled())	wyswietlMapeStrzalow();
+if (Logger.isDebugEnabled())	wyswietlMapeStrzalow();
 // System.out.println("poleShip.Width Height:"+poleShip.getWidth(null)+" "+poleShip.getHeight(null));
 	}
 
 } //end of inner class
 
 void przygotujDoPonownegoUzycia(){
-	if (Logger.getDebugEnabled()) System.out.println("Debug: metoda przygotujDoPonownegoUzycia()");
+	if (Logger.isDebugEnabled()) System.out.println("Debug: metoda przygotujDoPonownegoUzycia()");
 	iloscWyswietlen=0;
 	for(int y=0;y<PLANSZA_MAX_Y;y++)
 		for(int x=0;x<PLANSZA_MAX_X;x++)
