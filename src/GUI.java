@@ -66,8 +66,8 @@ GUI(Mapa map, Statek[] statki, Game partyjkaGry){
 		int panel1sizeX=(Mapa.PLANSZA_MAX_X*(Mapa.GAP_BEETWEEN_SQUARES+Mapa.SIZE_OF_SQUARE)+Mapa.LEFT_OFFSET_FROM_PANEL*2);
 		panel2.setPreferredSize(new Dimension(PANEL2_SIZE_X, panel12sizeY));
 		panel1.setPreferredSize(new Dimension(panel1sizeX, panel12sizeY));
-		if (Logger.getDebugEnabled()) System.out.println("Panel1 x size:"+panel1sizeX);
-		if (Logger.getDebugEnabled()) System.out.println("Panel1 y size:"+panel12sizeY);
+		if (Logger.isDebugEnabled()) System.out.println("Panel1 x size:"+panel1sizeX);
+		if (Logger.isDebugEnabled()) System.out.println("Panel1 y size:"+panel12sizeY);
 		panelCentralny.add(panel1);
 		panelCentralny.add(panel2);
 		panel1.add(mapaGui);
@@ -142,30 +142,30 @@ void procesujStrzal(){
 		panelCentralny.repaint();
 		panelCentralny.revalidate();
 
+		/* jak mozna odswiezyc ilosc ruchow ?? */
 		refreshIloscRuchow();
+
 		mapa.aktualizujMapeStrzalow(poleOstrzeliwane);
+
+		/* dla wszystkich statkow sprawdz
+		czy zostaly trafione
+		 */
 	 for(int i = 0;i<Mapa.ILOSC_STATKOW_NA_PLANSZY;i++) {
 	 	Logger.deepDebug("statek nr="+i+" "+stateczek[i].toString());
 
-	 	/*
-	 	ni chuja nie wiem co autor mial na mysli
-	 	 */
-	 	if (stateczek[i].czyPozycjaZawieraPole(poleOstrzeliwane)) {
-			 stateczek[i].setTrafionyWPole(poleOstrzeliwane);
+		if(!stateczek[i].jestZatopiony()){
+			if (stateczek[i].stoiNaPolu(poleOstrzeliwane)) {
+				 stateczek[i].zostajeTrafionyWPole(poleOstrzeliwane);
 
-			 // co to za gowniana zmienna w tym miejscu??? czemu tu?? co chemy tym kodem osiagnac?
-			// otoz chcemy sprawdzic czy cos zostalo trafione wlasnie w tym strzale,
-			// a jak tak, to ktory statek z listy statkow
-			//chcemy to wiedziec, zeby sprawdzic czy ten statek zostal 'ostatnioZatopiony' (COOO??)
-			// i po co?
-
-			boolean ostatnioZatopiony=false;
-			 ostatnioZatopiony = stateczek[i].sprawdzCzyOstatnioZatopiony();
-			 if (ostatnioZatopiony) mapa.oznaczPustePolaWokolZatopionegoStatku(stateczek[i]);
-			 if (Logger.getDebugEnabled()) {
-				 wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony(true, ostatnioZatopiony);
+				 if (stateczek[i].jestZatopiony()) mapa.oznaczPustePolaWokolZatopionegoStatku(stateczek[i]);
+				// ten kod ponizej,  zeby wypisac na konsole komunikat TRAFIONY albo TRAFIONY ZATOPIONY
+				 if (Logger.isDebugEnabled()) {
+					 System.out.print("Debug:    TRAFIONY!!");
+					 if (stateczek[i].jestZatopiony()) System.out.print(" i ZATOPIONY!!");
+					 System.out.println();
+				 }
 			 }
-		 }
+		}
 	 }
 
 
@@ -175,7 +175,7 @@ void procesujStrzal(){
 				odlaczSluchaczaMyszyMapy();
 
 				hall.setVisible();
-				if (Logger.getDebugEnabled())
+				if (Logger.isDebugEnabled())
 						hall.showFameListInConsole();
 				if (hall.czyWynikNadajeSieDoRankingu((mapa.getIloscWyswietlen())))
 						hall.dodajWynikDoRankingu(mapa.getIloscWyswietlen());
@@ -186,15 +186,11 @@ void procesujStrzal(){
 boolean wszystkieStatkiZatopione()
 {
 boolean wszystkieZatopione=true;
-for(int i = 0;i<Mapa.ILOSC_STATKOW_NA_PLANSZY;i++) wszystkieZatopione&= stateczek[i].sprawdzCzyZatopiony();
+for(int i = 0;i<Mapa.ILOSC_STATKOW_NA_PLANSZY;i++) wszystkieZatopione&= stateczek[i].jestZatopiony();
 
 		return wszystkieZatopione;
 }
 
-void wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony(boolean ostatnioTrafiony, boolean ostatnioZatopiony){
-		if (ostatnioTrafiony) System.out.println("Debug:    TRAFIONY!!");
-		if (ostatnioZatopiony) System.out.println("Debug:    TRAFIONY ZATOPIONY!!");
-}
 
 boolean walidujWprowadzoneDane(String strzal){
 		if (strzal.length()!=2) return false;
@@ -232,7 +228,7 @@ void odlaczSluchaczaJTF(){
 
 void wyswietlObrazekKoncaGry()
 {
-		if (Logger.getDebugEnabled())   System.out.println("ZATOPILES WSZYSTKO!! w "+mapa.getIloscWyswietlen() + " ruchach.");
+		if (Logger.isDebugEnabled())   System.out.println("ZATOPILES WSZYSTKO!! w "+mapa.getIloscWyswietlen() + " ruchach.");
 		obrazKoncaGry.setPreferredSize(new Dimension(200, 260));
 		panel2.add(obrazKoncaGry);
 		JTFstrzalW.setEnabled(false);
@@ -301,7 +297,7 @@ class SluchaczMyszy implements MouseListener {
 				Pole[] p;
 				Pole strzal=new Pole();
 
-				if (Logger.getDebugEnabled())
+				if (Logger.isDebugEnabled())
 						saySomething("Mouse clicked (# of clicks: "
 										+ e.getClickCount() + ")", e);
 
@@ -313,7 +309,7 @@ class SluchaczMyszy implements MouseListener {
 								for (int a=0;a<3;a++){
 										strzal.setX(p[a].getX());
 										strzal.setY(p[a].getY());
-										stateczek[b].czyPozycjaZawieraPole(strzal);
+										stateczek[b].stoiNaPolu(strzal);
 								} // end of for
 						} // end of for
 				} // enf of if
@@ -335,7 +331,7 @@ class SluchaczMyszy implements MouseListener {
 				if (((e.getY()-Mapa.UPPER_OFFSET_FROM_PANEL)%(Mapa.GAP_BEETWEEN_SQUARES+Mapa.SIZE_OF_SQUARE)>Mapa.SIZE_OF_SQUARE)) return;
 				if (e.getY()>(Mapa.PLANSZA_MAX_Y*(Mapa.GAP_BEETWEEN_SQUARES+Mapa.SIZE_OF_SQUARE)+Mapa.UPPER_OFFSET_FROM_PANEL-Mapa.GAP_BEETWEEN_SQUARES)) return; //strzal na dol od pol	
 				if (e.getY()<Mapa.UPPER_OFFSET_FROM_PANEL) return; //strzal na gore od pol	
-		//		if (Logger.getDebugEnabled())   System.out.println("Strzal trafil w pole ("+xx+","+yy+")");
+		//		if (Logger.isDebugEnabled())   System.out.println("Strzal trafil w pole ("+xx+","+yy+")");
 		System.out.println("Wprowadzono strzal z GUI na pozycje ("+xx+","+yy+")");
 //System.out.flush();
 				// strzelamy myszka w pole:

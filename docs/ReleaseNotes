@@ -9,3 +9,5 @@
 
 -Zamieniono zmienna globalna klasy GUI na lokalna jednej z metod
 -Usunieto zmienna globalna klasy GUI
+-Naprawilem jeden test w Statki :)
+- usunalem zmienne ostatnioTrafiony i ostatnioZatopiony z klasy Statek

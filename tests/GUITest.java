@@ -19,15 +19,15 @@ Thread.sleep(1000);
 		Pole strzal=new Pole();
 		strzal.setX(3);
 		strzal.setY(3);
-		s[0].czyPozycjaZawieraPole(strzal);
+		s[0].stoiNaPolu(strzal);
 Thread.sleep(1000);
 		strzal.setX(4);
 		strzal.setY(4);
-		s[1].czyPozycjaZawieraPole(strzal);
+		s[1].stoiNaPolu(strzal);
 Thread.sleep(1000);
 		strzal.setX(5);
 		strzal.setY(5);
-		s[2].czyPozycjaZawieraPole(strzal);
+		s[2].stoiNaPolu(strzal);
 Thread.sleep(2000);
 		//gui.wyswietlObrazekKoncaGryIodlaczSluchaczaJTF();
 	}
