@@ -43,9 +43,6 @@ JLabel zapytajOstrzal;
 JTextField JTFstrzalW;
 JTextField koniecGry;
 Game rozgrywka;
-// wybaczcie, ze ponizsze zmienne tu sa. to stan przejsciowy
-boolean ostatnioTrafiony=false;
-boolean ostatnioZatopiony=false;
 Pole poleOstrzeliwane =new Pole();
 
 GUI(Mapa map, Statek[] statki, Game partyjkaGry){
@@ -135,7 +132,6 @@ void przygotujDoPonownegoUzyciaGUI(){
 
 
 void procesujStrzal(){
-int trafionyStatekNr=999999; // wartosc > ilosc statkow na planszy
 
 	/*  chyba ma za zadanie zliczanie ruchow. bardzo niefortunna nazwa */
 		mapa.incrementIloscWyswietlen();
@@ -151,19 +147,27 @@ int trafionyStatekNr=999999; // wartosc > ilosc statkow na planszy
 	 for(int i = 0;i<Mapa.ILOSC_STATKOW_NA_PLANSZY;i++) {
 	 	Logger.deepDebug("statek nr="+i+" "+stateczek[i].toString());
 
-	 	if (stateczek[i].jestTrafionyWPole(poleOstrzeliwane)) {
-			 stateczek[i].setTrafiony(poleOstrzeliwane);
-			 ostatnioTrafiony = true;
-			 trafionyStatekNr = i;
-			 ostatnioZatopiony = stateczek[trafionyStatekNr].sprawdzCzyOstatnioZatopiony();
-			 if (ostatnioZatopiony) mapa.oznaczPustePolaWokolZatopionegoStatku(stateczek[trafionyStatekNr]);
+	 	/*
+	 	ni chuja nie wiem co autor mial na mysli
+	 	 */
+	 	if (stateczek[i].czyPozycjaZawieraPole(poleOstrzeliwane)) {
+			 stateczek[i].setTrafionyWPole(poleOstrzeliwane);
+
+			 // co to za gowniana zmienna w tym miejscu??? czemu tu?? co chemy tym kodem osiagnac?
+			// otoz chcemy sprawdzic czy cos zostalo trafione wlasnie w tym strzale,
+			// a jak tak, to ktory statek z listy statkow
+			//chcemy to wiedziec, zeby sprawdzic czy ten statek zostal 'ostatnioZatopiony' (COOO??)
+			// i po co?
+
+			boolean ostatnioZatopiony=false;
+			 ostatnioZatopiony = stateczek[i].sprawdzCzyOstatnioZatopiony();
+			 if (ostatnioZatopiony) mapa.oznaczPustePolaWokolZatopionegoStatku(stateczek[i]);
 			 if (Logger.getDebugEnabled()) {
-				 wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony();
+				 wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony(true, ostatnioZatopiony);
 			 }
 		 }
 	 }
-		ostatnioTrafiony=false;
-		ostatnioZatopiony=false;
+
 
 		if(wszystkieStatkiZatopione()) {
 				wyswietlObrazekKoncaGry();
@@ -187,11 +191,11 @@ for(int i = 0;i<Mapa.ILOSC_STATKOW_NA_PLANSZY;i++) wszystkieZatopione&= statecze
 		return wszystkieZatopione;
 }
 
-void wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony(){
+void wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony(boolean ostatnioTrafiony, boolean ostatnioZatopiony){
 		if (ostatnioTrafiony) System.out.println("Debug:    TRAFIONY!!");
 		if (ostatnioZatopiony) System.out.println("Debug:    TRAFIONY ZATOPIONY!!");
-
 }
+
 boolean walidujWprowadzoneDane(String strzal){
 		if (strzal.length()!=2) return false;
 		String s1 = strzal.substring(0,1);
@@ -309,7 +313,7 @@ class SluchaczMyszy implements MouseListener {
 								for (int a=0;a<3;a++){
 										strzal.setX(p[a].getX());
 										strzal.setY(p[a].getY());
-										stateczek[b].jestTrafionyWPole(strzal);
+										stateczek[b].czyPozycjaZawieraPole(strzal);
 								} // end of for
 						} // end of for
 				} // enf of if

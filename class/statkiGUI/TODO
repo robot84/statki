@@ -26,6 +26,11 @@ a budujac flote, nie sprawdzamy czy ilosc statkow jest taka jak potrzebna dla pl
 
 3. do debugu dodac czas przy komunikatach
 
+4. klikniecie w krzyzyk w oknie wcale nie niszczy procesu!
+
+5. jesli klikamy w pole mapy, to jezeli wciskanie przycisku bedzie na innym pixelu niz jego release to pole nie zostanie
+sprawdzone (strzal nie zostanie oddany)
+
 DONE:
 2:30h - pozbycie sie pliku StaticVariables.class oraz refaktoring debugu (stworzenie klasy Logger)
 

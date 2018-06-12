@@ -62,9 +62,10 @@ masztTrafiony[maszt]=true;
 }
 
 
-boolean getMasztTrafiony(int maszt){
+private boolean isMasztTrafiony(int maszt){
 return masztTrafiony[maszt];
 }
+
 
 
 	void pokazPozycje(){
@@ -191,7 +192,7 @@ return masztTrafiony[maszt];
 	}
 
 
-	boolean jestTrafionyWPole(Pole p) {
+	boolean czyPozycjaZawieraPole(Pole p) {
 		// ta metoda wyglada jakby odpowiadala na pytanie czy w ogole trafiony w ktorys z masztow w tym strzale
 		// ale tylko mowi tak/nie, a jak 'tak' to nie oznacza nigdzie trafienia! i dalej ten zagiel wyglada na nietrafiony
 	// czy tu nie powstanie NULL pointer?? dla statkow 1,2masztowych?
@@ -202,7 +203,7 @@ return masztTrafiony[maszt];
 		/* jezeli chociaz jedno pole z pol zajmowanych przez statek na mapie ma te sama pozycje co pole z parametru metody
 		to znaczy ze statek zostal trafiony w to pole i zwracamy true.
 		UWAGA! Nie ma znaczenia czy trafienie nastapilo w tym strzale czy 10 strzalow temu
-		Ta metoda nie zmienia stanu zmiennych maszTrafiony, a powinna!!
+		Ta metoda nie zmienia stanu zmiennych masztTrafiony, a powinna!!
 		 */
 		for (Pole po:pozycjaStatkuMaszt)
 			if((p.getX()==po.getX()) && (p.getY()==po.getY()) ) {
@@ -213,7 +214,7 @@ return masztTrafiony[maszt];
 		return false;
 	}
 
-	void setTrafiony(Pole p) {
+	void setTrafionyWPole(Pole p) {
 				// ustaw magic number czyli SHIP_SHOOTED jako jego pozycje
 				int i=0;
 				for (Pole po:pozycjaStatkuMaszt)
@@ -229,7 +230,7 @@ return masztTrafiony[maszt];
 
 	boolean sprawdzCzyZatopiony() {
  			boolean zatopiony=true;
-			for (int i=0;i<iloscMasztow;i++) zatopiony&=getMasztTrafiony(i);
+			for (int i=0;i<iloscMasztow;i++) zatopiony&= isMasztTrafiony(i);
 			if (zatopiony) {
 				return true;
 			}
@@ -238,7 +239,7 @@ return masztTrafiony[maszt];
 
 	boolean sprawdzCzyWlasnieZatopiony() {
 			boolean zatopionyyy=true;
-			for (int i=0;i<iloscMasztow;i++) zatopionyyy&=getMasztTrafiony(i);
+			for (int i=0;i<iloscMasztow;i++) zatopionyyy&= isMasztTrafiony(i);
 			if (zatopionyyy) {
 			zatopiony=true;
 			ostatnioZatopiony=true; // poniewaz wlasnie go zatopilo obecne trafienie

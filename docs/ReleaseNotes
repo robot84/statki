@@ -6,3 +6,6 @@
 		a plansza miesci mniej wiecej 1statek_3masztowy/15pol
 0.8 - mozna stawiac statki o dowolnej liczbie masztow
 0.9 - zatopiony statek zostaje automatycznie oznaczony pustymi polami dookola
+
+-Zamieniono zmienna globalna klasy GUI na lokalna jednej z metod
+-Usunieto zmienna globalna klasy GUI

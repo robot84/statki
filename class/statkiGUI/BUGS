@@ -3,3 +3,76 @@ jesli okaze sie ze to za malo, zeby rozmiescic statki na planszy, to trza zwieks
 wpisanie pola planszy np 88 nie jest obsluzone poprawnie
 ogolnie walidacja wpisywania jest wazna :))
 tak z konsoli jak z GUI :)
+
+
+----------------
+LESSONS LEARNT
+--------------
+/*
+tu widac glupote getterow i setterow.
+nazwa ponizszej metody sugeruje, ze get MasztTrafiony, czyli pobieramy numer masztu trafionego czyli int,
+pobieramy wartosc zmiennej MasztTrafiony czyli true/false
+Hmm, juz mi wyszly dwie rozne rzeczy, a chcialem innymi slowami opisac ta sama JEDNA rzecz
+Bo co innego myslimy o dzialaniu, jak wiemy ze to getter, a co innego, jak czytamy nazwe metody
+i jej nazwa sie sugerujemy co robi kod
+
+ */
+private boolean getMasztTrafiony(int maszt){
+return masztTrafiony[maszt];
+}
+/*
+Lepiej napisac jak ponizej. Wtedy jednoznacznie sie kojarzy. Uniknelismy konwencji get/set, a jest jednoznacznie :)
+*/
+	boolean isMasztTrafiony(int maszt){
+		return masztTrafiony[maszt];
+	}
+
+	------------------
+	Bardzo kiepski przyklad komunikacji miedzy 2ma metodami. Uzylismy do tego zmiennej globalnej w klasie.
+	zmienna: ostatnioZatopiony
+	I piszac taki kod wiemy co robimy, jakie mamy intencje i pisze sie go latwo.
+	Ale pol roku pozniej probujemy sie zastanowic, w ktorych metodach ta zmienna jest uzyta, kiedy zmienia wartosc,
+	czy nie jest uzyta o zgrozo poza klasa, bo nie jest nawet private, i ktos moglby w innej klasie ja odczytac/zapisac
+	I taka analiza wstecz jest trudna. Musimy przeszukac caly projekt czy gdzies nie uzywa tej zmiennej.
+	Cale szczescie ze tylko dwie metody jej uzywaja. Bo jak wiecej, to zastanowienie sie jak ja wyrugowac i czegos
+	nie zepsuc przy okazji, moze byc trudne.
+
+	A ze ta zmienna jest zdeklarowana w klasie GUI, a nic wspolnego z GUI nie ma, to juz w ogole tragedia.
+
+	class Klasa {
+	boolean ostatnioZatopiony;
+
+	void metoda1(){
+	// ustawia true/false dla naszej zmiennej
+	// a teraz wywoluje metode2()
+	wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony();
+	}
+
+	void wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony(){
+    		if (ostatnioTrafiony) System.out.println("Debug:    TRAFIONY!!");
+    		if (ostatnioZatopiony) System.out.println("Debug:    TRAFIONY ZATOPIONY!!");
+    }
+
+    }
+    A wystarczylo napisac to tak:
+
+    class Klasa {
+
+    	void metoda1(){
+    	boolean ostatnioZatopiony;
+    	// ustawia true/false dla naszej zmiennej, tym razem lokalnej!
+    	// a teraz wywoluje metode2()
+    	wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony(ostatnioZatopiony);
+    	}
+
+    	void wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony(boolean ostatnioZatopiony){
+        		if (ostatnioTrafiony) System.out.println("Debug:    TRAFIONY!!");
+        		if (ostatnioZatopiony) System.out.println("Debug:    TRAFIONY ZATOPIONY!!");
+        }
+
+        }
+
+    i znika nam potrzeba deklaracji tej zmiennej w klasie. widac wyraznie, ze zmienna pojawia i konczy zywot
+    w obrebie jednej metody.
+
+---------------------------
