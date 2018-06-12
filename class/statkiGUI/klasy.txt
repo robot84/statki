@@ -1,0 +1,28 @@
+class Statek extends StaticVariables  {
+        private Pole[] poz=new Pole[ILOSC_MASZTOW];
+        private boolean zatopiony;
+        private boolean ostatnioZatopiony;
+
+	Statek(){
+	boolean getZatopiony(){
+	boolean getOstatnioZatopiony(){
+	void pokazPozycje(){
+	void getAll(){
+	static Pole[] generujPolozenie(int i){
+	void pokazStatekNaMapie(){
+	void setPole(Pole[] po){
+	Pole[] getPozycja(){
+	void wyswietlPolozenie(){
+
+class GUI extends StaticVariables {
+	JFrame ramka;
+	JPanel panelCentralny;
+	Mapa mapa;
+	Statek[] s;
+	JLabel infoIloscRuchow;
+	JLabel zapytajOstrzal;
+	JTextField xyStrzalu;
+	JTextField koniecGry;
+
+	GUI(Mapa map,Statek[] statki){
+	void refreshIloscRuchow(){

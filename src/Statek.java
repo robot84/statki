@@ -1,5 +1,6 @@
 class Statek  {
 	static final int MAX_ILOSC_MASZTOW=4;
+
 	private int iloscMasztow=MAX_ILOSC_MASZTOW;
 	private Pole[] pozycjaStatkuMaszt; // nazwa dziwna, ale chodzi  oto, zeby ladnie
 	// sie czytalo jak jest tablica, np pozycjaStatkuMaszt[1]
@@ -190,9 +191,19 @@ return masztTrafiony[maszt];
 	}
 
 
-	boolean sprawdzCzyTrafiony(Pole p) {
+	boolean jestTrafionyWPole(Pole p) {
+		// ta metoda wyglada jakby odpowiadala na pytanie czy w ogole trafiony w ktorys z masztow w tym strzale
+		// ale tylko mowi tak/nie, a jak 'tak' to nie oznacza nigdzie trafienia! i dalej ten zagiel wyglada na nietrafiony
 	// czy tu nie powstanie NULL pointer?? dla statkow 1,2masztowych?
+		// AHA! dlaczego dla 1,2maszt? bo max maszt byl3 wtedy! czyli teraz dla 1,2,3maszt!!
+		// lepiej bylo to opisac "dla statkow o liczbie masztow < MAX"
 		Logger.deepDebug(p.toString());
+
+		/* jezeli chociaz jedno pole z pol zajmowanych przez statek na mapie ma te sama pozycje co pole z parametru metody
+		to znaczy ze statek zostal trafiony w to pole i zwracamy true.
+		UWAGA! Nie ma znaczenia czy trafienie nastapilo w tym strzale czy 10 strzalow temu
+		Ta metoda nie zmienia stanu zmiennych maszTrafiony, a powinna!!
+		 */
 		for (Pole po:pozycjaStatkuMaszt)
 			if((p.getX()==po.getX()) && (p.getY()==po.getY()) ) {
 				return true;

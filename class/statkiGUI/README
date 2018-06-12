@@ -1,0 +1,18 @@
+Zeby kompilowac kod po zmianach polecam:
+make remake
+
+Zeby go uruchomic polecam:
+make run
+
+A po zmianach najlepiej od razu:
+make remake && make run
+
+W celu archiwizacji:
+make archive
+
+Po make clean nie dziala robienie make remake, wiec trza make all
+Po tym zabiego make remake dziala normalnie
+
+Argumenty programu:
+-d // debug
+-dd // deep debug

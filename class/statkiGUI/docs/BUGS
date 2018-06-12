@@ -1,0 +1,5 @@
+algorytm rozmieszczania statkow probuje 5 pozycji a pozniej poddaje sie
+jesli okaze sie ze to za malo, zeby rozmiescic statki na planszy, to trza zwiekszyc liczbe prob
+wpisanie pola planszy np 88 nie jest obsluzone poprawnie
+ogolnie walidacja wpisywania jest wazna :))
+tak z konsoli jak z GUI :)

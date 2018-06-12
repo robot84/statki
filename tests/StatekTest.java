@@ -132,13 +132,13 @@ public class StatekTest{
 		for (int i = 0; i < iloscStrzalowCelnych; i++) {
 			strzal.setX(celne_x[i]);
 			strzal.setY(celne_y[i]);
-			Assert.assertEquals(true, statek.sprawdzCzyTrafiony(strzal));
+			Assert.assertEquals(true, statek.jestTrafionyWPole(strzal));
 		}
 		int iloscStrzalowNieCelnych=niecelne_x.length; // ilosc prob, gdzie oczekujemy rezulatatu false
 		for (int i = 0; i < iloscStrzalowCelnych; i++) {
 			strzal.setX(niecelne_x[i]);
 			strzal.setY(niecelne_y[i]);
-			Assert.assertEquals(false, statek.sprawdzCzyTrafiony(strzal));
+			Assert.assertEquals(false, statek.jestTrafionyWPole(strzal));
 		}
 
 	
@@ -160,7 +160,7 @@ public class StatekTest{
 		for (int i = 0; i < iloscStrzalowCelnych; i++) {
 			strzal.setX(celne_x[i]);
 			strzal.setY(celne_y[i]);
-			statek.sprawdzCzyTrafiony(strzal);
+			statek.jestTrafionyWPole(strzal);
 		}
 		Assert.assertEquals(true,statek.sprawdzCzyZatopiony());
 
@@ -182,7 +182,7 @@ public class StatekTest{
 		for (int i = 0; i < iloscStrzalow; i++) {
 			strzal.setX(Out_x[i]);
 			strzal.setY(Out_y[i]);
-			statek.sprawdzCzyTrafiony(strzal);
+			statek.jestTrafionyWPole(strzal);
 		}
 		Assert.assertEquals(false,statek.sprawdzCzyZatopiony());
 
@@ -204,7 +204,7 @@ public class StatekTest{
 		for (int i = 0; i < iloscStrzalow; i++) {
 			strzal.setX(celne_x[i]);
 			strzal.setY(celne_y[i]);
-			statek.sprawdzCzyTrafiony(strzal);
+			statek.jestTrafionyWPole(strzal);
 		}
 		Assert.assertEquals(true,statek.sprawdzCzyOstatnioZatopiony());
 	
@@ -227,7 +227,7 @@ public class StatekTest{
 		for (int i = 0; i < iloscStrzalow; i++) {
 			strzal.setX(Out_x[i]);
 			strzal.setY(Out_y[i]);
-			statek.sprawdzCzyTrafiony(strzal);
+			statek.jestTrafionyWPole(strzal);
 		}
 		Assert.assertEquals(false,statek.sprawdzCzyOstatnioZatopiony());
 	
@@ -250,9 +250,9 @@ public class StatekTest{
 		for (int i = 0; i < iloscStrzalow; i++) {
 			strzal.setX(Out_x[i]);
 			strzal.setY(Out_y[i]);
-			statek.sprawdzCzyTrafiony(strzal);
+			statek.jestTrafionyWPole(strzal);
 		}
-		statek.sprawdzCzyTrafiony(strzal);
+		statek.jestTrafionyWPole(strzal);
 		Assert.assertEquals(false,statek.sprawdzCzyOstatnioZatopiony());
 	
 	}

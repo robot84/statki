@@ -46,7 +46,7 @@ Game rozgrywka;
 // wybaczcie, ze ponizsze zmienne tu sa. to stan przejsciowy
 boolean ostatnioTrafiony=false;
 boolean ostatnioZatopiony=false;
-Pole strzalWpoleP=new Pole();
+Pole poleOstrzeliwane =new Pole();
 
 GUI(Mapa map, Statek[] statki, Game partyjkaGry){
 		rozgrywka=partyjkaGry;
@@ -136,19 +136,23 @@ void przygotujDoPonownegoUzyciaGUI(){
 
 void procesujStrzal(){
 int trafionyStatekNr=999999; // wartosc > ilosc statkow na planszy
+
+	/*  chyba ma za zadanie zliczanie ruchow. bardzo niefortunna nazwa */
 		mapa.incrementIloscWyswietlen();
+
+	/* odswiez ekran(okno) */
 		mapaGui.repaint();
 		mapaGui.revalidate();
 		panelCentralny.repaint();
 		panelCentralny.revalidate();
 
 		refreshIloscRuchow();
-		mapa.aktualizujMapeStrzalow(strzalWpoleP);
+		mapa.aktualizujMapeStrzalow(poleOstrzeliwane);
 	 for(int i = 0;i<Mapa.ILOSC_STATKOW_NA_PLANSZY;i++) {
 	 	Logger.deepDebug("statek nr="+i+" "+stateczek[i].toString());
 
-	 	if (stateczek[i].sprawdzCzyTrafiony(strzalWpoleP)) {
-			 stateczek[i].setTrafiony(strzalWpoleP);
+	 	if (stateczek[i].jestTrafionyWPole(poleOstrzeliwane)) {
+			 stateczek[i].setTrafiony(poleOstrzeliwane);
 			 ostatnioTrafiony = true;
 			 trafionyStatekNr = i;
 			 ostatnioZatopiony = stateczek[trafionyStatekNr].sprawdzCzyOstatnioZatopiony();
@@ -193,8 +197,8 @@ boolean walidujWprowadzoneDane(String strzal){
 		String s1 = strzal.substring(0,1);
 		String s2 = strzal.substring(1,2);
 		try{
-				strzalWpoleP.setX(Integer.parseInt(s1));
-				strzalWpoleP.setY(Integer.parseInt(s2));
+				poleOstrzeliwane.setX(Integer.parseInt(s1));
+				poleOstrzeliwane.setY(Integer.parseInt(s2));
 		}
 		catch (NumberFormatException e)
 		{
@@ -305,7 +309,7 @@ class SluchaczMyszy implements MouseListener {
 								for (int a=0;a<3;a++){
 										strzal.setX(p[a].getX());
 										strzal.setY(p[a].getY());
-										stateczek[b].sprawdzCzyTrafiony(strzal);
+										stateczek[b].jestTrafionyWPole(strzal);
 								} // end of for
 						} // end of for
 				} // enf of if
@@ -331,8 +335,8 @@ class SluchaczMyszy implements MouseListener {
 		System.out.println("Wprowadzono strzal z GUI na pozycje ("+xx+","+yy+")");
 //System.out.flush();
 				// strzelamy myszka w pole:
-				strzalWpoleP.setX(xx);
-				strzalWpoleP.setY(yy);
+				poleOstrzeliwane.setX(xx);
+				poleOstrzeliwane.setY(yy);
 				procesujStrzal();
 
 		} //end of method

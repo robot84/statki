@@ -1,0 +1,5 @@
+2:30 h - udalo mi sie zainstalowac junit, pozbyc sie bledu incompatible type (ktory wynikal z tego ze w moich klasach uzylem gdzies metody albo klasy o nazwie Test , echhh prawo murphyego dziala. To bylo jedyne zabronione slowo, przez ktore junit mial prawo zle dzialac, hehe i trafil na nie :>>>
+no i napisac 8 TC dla Statek oraz 4 TC dla Pole
+
+
+1:20 h - 5 nowych TC dla klasy Statek + zabawy z Makefile + rozdzielenie klas do osobnych plikow java, tak zeby kazdy plik zawieral tylko jedna klase + utworzenie klasy StaticVariables + zmiana cyfry 3 na stala we wszystkich plikach oprocz klasa Mapa (jest defekt). test wykazal defekt w kodzie, ktore nie zauwazylismy wczesniej, albo go olalismy jako malo znaczacy
