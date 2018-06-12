@@ -1,0 +1,3 @@
+Argumenty wywolania HallofFame:
+-c #create new score file with default values
+--admin-mode # special buttons for score edition
