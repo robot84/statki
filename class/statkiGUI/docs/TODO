@@ -31,8 +31,13 @@ a budujac flote, nie sprawdzamy czy ilosc statkow jest taka jak potrzebna dla pl
 5. jesli klikamy w pole mapy, to jezeli wciskanie przycisku bedzie na innym pixelu niz jego release to pole nie zostanie
 sprawdzone (strzal nie zostanie oddany)
 
+6. dodac test sprawdzajacy czy mozliwy jest strzal do zatopionego statku. a raczej przy strzale na taka pozycje jaka
+jest reakcja apki.
+
 DONE:
 2:30h - pozbycie sie pliku StaticVariables.class oraz refaktoring debugu (stworzenie klasy Logger)
+2:30h - dalszy refaktoring
 
+3:00h - naprawianie nieprzechodzacych testow klasy Statek a przy okazji refaktoring, zeby zrozumiec co sie w kodzie dzieje
 
 Jak cos sie jebie raz, a drugi raz przechodzi dobrze, to zrob Rebuild

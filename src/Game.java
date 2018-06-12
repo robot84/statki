@@ -19,7 +19,7 @@ void rozpocznij(){
 	for (int i=0;i<statkiNaPlanszy.length;i++) {
 		// generujemy statki o liczbie masztow 1..MAX_ILOSC_MASZTOW
 		statkiNaPlanszy[i]=new Statek((int)((Math.random()*MAX_ILOSC_MASZTOW)+1));
-		if (Logger.getDeepDebugEnabled())		System.out.println("Debug: Utworzono nowy statek o liczbie masztow: "+statkiNaPlanszy[i].getIloscMasztow());
+		if (Logger.isDeepDebugEnabled())		System.out.println("Debug: Utworzono nowy statek o liczbie masztow: "+statkiNaPlanszy[i].getIloscMasztow());
 
 	}
 	*/
@@ -60,17 +60,17 @@ void rozpocznij(){
 			for(int w=0;w<MAX_PROB_USTAWIEN_STATKU;w++) 
 				if ( (!statkiNaPlanszy[i].ustawLosowoPolozenieStatku(mapa)) ) {
 				// co 10 nieudanych prob pisz blad (przy probach 9,19,29,...)
-					if(Logger.getDeepDebugEnabled() && w%100==99) System.out.println("DeepDebug: Proba "+w+" NIE MOZNA USTAWIC STATKU!");
+					if(Logger.isDeepDebugEnabled() && w%100==99) System.out.println("DeepDebug: Proba "+w+" NIE MOZNA USTAWIC STATKU!");
 				}
 				else 
 				{
-					if (Logger.getDeepDebugEnabled()) System.out.println("DeepDebug: Ustawilem statek!");
+					if (Logger.isDeepDebugEnabled()) System.out.println("DeepDebug: Ustawilem statek!");
 					break;
 				}
 
 			//	   statkiNaPlanszy[i].getAll();
 			mapa.dodajStatek(statkiNaPlanszy[i]);
-			if (Logger.getDeepDebugEnabled()) mapa.wyswietlMapePozycjiStatkow();
+			if (Logger.isDeepDebugEnabled()) mapa.wyswietlMapePozycjiStatkow();
 		}
 
 

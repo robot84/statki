@@ -7,7 +7,6 @@ class Statek  {
 	// czytamy pozycjaStatkuMaszt pierwszy. czyli pozycja na mapie masztu jeden
 	private Boolean[] masztTrafiony;
 	private boolean zatopiony;
-	private boolean ostatnioZatopiony;
 
 
 	Statek(int ilosc_masztow){
@@ -43,7 +42,6 @@ if (maszt >= 0 & maszt <iloscMasztow)
 		pozycjaStatkuMaszt[i].y=0;
 		}
 		zatopiony=false;
-		ostatnioZatopiony=false;
 	}
 
 
@@ -52,13 +50,11 @@ if (maszt >= 0 & maszt <iloscMasztow)
 	}
 
 
-	boolean getOstatnioZatopiony(){
-		return ostatnioZatopiony;
-	}
 
-
-void setMasztTrafiony(int maszt){
+void zostajeTrafionyWMaszt(int maszt){
 masztTrafiony[maszt]=true;
+if(this.czyWszystkieMasztyTrafione()) zatopiony=true;
+
 }
 
 
@@ -66,7 +62,14 @@ private boolean isMasztTrafiony(int maszt){
 return masztTrafiony[maszt];
 }
 
-
+	private boolean czyWszystkieMasztyTrafione() {
+		boolean zatopionyy=true;
+		for (int i=0;i<iloscMasztow;i++) zatopionyy= zatopionyy & isMasztTrafiony(i);
+		if (zatopionyy) {
+			return true;
+		}
+		else return false;
+	}
 
 	void pokazPozycje(){
 		for (int i=0;i<iloscMasztow;i++) System.out.println(" x: " + pozycjaStatkuMaszt[i].getX() + " y: " + pozycjaStatkuMaszt[i].getY());
@@ -84,7 +87,7 @@ return masztTrafiony[maszt];
 		int x=(int)(Math.random()*(Mapa.PLANSZA_MAX_X)); 
 		int y=(int)(Math.random()*(Mapa.PLANSZA_MAX_Y)); 
 		int pionCzyPoziom=(int)(Math.random()*2);
-		if (Logger.getDeepDebugEnabled()) {
+		if (Logger.isDeepDebugEnabled()) {
 			if (pionCzyPoziom==0)		Logger.deepDebug("(x,y) ("+x+","+y+")"+" pionowo");
 			else Logger.deepDebug("(x,y) ("+x+","+y+")"+" poziomo");
 		}
@@ -192,7 +195,7 @@ return masztTrafiony[maszt];
 	}
 
 
-	boolean czyPozycjaZawieraPole(Pole p) {
+	boolean stoiNaPolu(Pole p) {
 		// ta metoda wyglada jakby odpowiadala na pytanie czy w ogole trafiony w ktorys z masztow w tym strzale
 		// ale tylko mowi tak/nie, a jak 'tak' to nie oznacza nigdzie trafienia! i dalej ten zagiel wyglada na nietrafiony
 	// czy tu nie powstanie NULL pointer?? dla statkow 1,2masztowych?
@@ -210,49 +213,48 @@ return masztTrafiony[maszt];
 				return true;
 			}
 
-		ostatnioZatopiony=false;
 		return false;
 	}
 
-	void setTrafionyWPole(Pole p) {
+	void zostajeTrafionyWPole(Pole poleTrafienia) {
+		// a co jak podamy pole na ktorym nie ma tego statku??
+		//
 				// ustaw magic number czyli SHIP_SHOOTED jako jego pozycje
 				int i=0;
-				for (Pole po:pozycjaStatkuMaszt)
+				for (Pole poleMasztuStatku:pozycjaStatkuMaszt)
 				{
-					if((p.getX()==po.getX()) && (p.getY()==po.getY()) ) {
-						
-					setMasztTrafiony(i);	
+					if((poleTrafienia.getX()==poleMasztuStatku.getX()) &&
+							(poleTrafienia.getY()==poleMasztuStatku.getY()) ) {
+							zostajeTrafionyWMaszt(i);
 					}
 				i++;
 				}
-				sprawdzCzyWlasnieZatopiony();
+
+				/*
+				W tym miejscu byla metoda, ktora wplywa na wartosc pol metody Statek:
+				zatopiony=??;
+			ostatnioZatopiony=??;
+				 */
 	}
 
-	boolean sprawdzCzyZatopiony() {
- 			boolean zatopiony=true;
-			for (int i=0;i<iloscMasztow;i++) zatopiony&= isMasztTrafiony(i);
-			if (zatopiony) {
-				return true;
-			}
-			else return false;
+	boolean jestZatopiony() {
+ 			return zatopiony;
 	}
+
+
 
 	boolean sprawdzCzyWlasnieZatopiony() {
 			boolean zatopionyyy=true;
 			for (int i=0;i<iloscMasztow;i++) zatopionyyy&= isMasztTrafiony(i);
 			if (zatopionyyy) {
 			zatopiony=true;
-			ostatnioZatopiony=true; // poniewaz wlasnie go zatopilo obecne trafienie
-System.out.println("Wlasnie zatopiony!");
+				System.out.println("Wlasnie zatopiony!");
 			return true;
 		}
 		else return false;
 	}
 
 
-	boolean sprawdzCzyOstatnioZatopiony() {
-		return ostatnioZatopiony;
-	}
 
 
 

@@ -7,10 +7,10 @@ public class Logger{
         System.out.println(level+" "+message);
     }
 
-    static boolean getDebugEnabled(){
+    static boolean isDebugEnabled(){
         return debugEnabled;
     }
-    static boolean getDeepDebugEnabled(){
+    static boolean isDeepDebugEnabled(){
         return deepDebugEnabled;
     }
 

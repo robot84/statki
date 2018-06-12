@@ -125,10 +125,10 @@ void sortuj(){
 	ObjectInputStream os = new ObjectInputStream(fs);
 	Integer listSize= (Integer) os.readObject();
 	if (listSize==0) return;
-if (Logger.getDebugEnabled()) System.out.println("Debug: listSize: "+listSize);
+if (Logger.isDebugEnabled()) System.out.println("Debug: listSize: "+listSize);
 	for (int i=1;i<=listSize;i++)
 	{
-if (Logger.getDebugEnabled()) System.out.println("Debug: readFromFile() listElement: "+i);
+if (Logger.isDebugEnabled()) System.out.println("Debug: readFromFile() listElement: "+i);
 		Fame fameEntry= (Fame)os.readObject();
 //		fameList.addEntry(fameEntry);
 		fameEntry.blowAfterReadFromFile();
@@ -167,7 +167,7 @@ for (Fame fameEntry:fameList) System.out.println("Debug: name: "+fameEntry.getNa
 		fameList.add(f);
 		gui.panel1.add(f.getNameeL());
 		gui.panel2.add(f.getScoreL());
-	if (Logger.getDebugEnabled())	System.out.println("Debug: addEntry(): "+f+" dodany na liste z wynikiem "+f.getScore());
+	if (Logger.isDebugEnabled())	System.out.println("Debug: addEntry(): "+f+" dodany na liste z wynikiem "+f.getScore());
 		sortuj(); 
 		gui.repaint();
 		gui.revalidate();
@@ -198,7 +198,7 @@ void removeAllEntries(){
 		fameList.remove(f);
 		gui.panel1.remove(f.getNameeL());
 		gui.panel2.remove(f.getScoreL());
-if (Logger.getDebugEnabled()) 	System.out.println("Debug: jestem w metodzie removeEntry()");
+if (Logger.isDebugEnabled()) 	System.out.println("Debug: jestem w metodzie removeEntry()");
         if (fameList.contains(f))System.out.println("Debug: "+f+" usuniety z listy");
         gui.repaint();
         gui.revalidate();
