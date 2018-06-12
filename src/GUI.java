@@ -159,11 +159,13 @@ void procesujStrzal(){
 			//chcemy to wiedziec, zeby sprawdzic czy ten statek zostal 'ostatnioZatopiony' (COOO??)
 			// i po co?
 
-			boolean ostatnioZatopiony=false;
+			boolean ostatnioZatopiony;
 			 ostatnioZatopiony = stateczek[i].sprawdzCzyOstatnioZatopiony();
 			 if (ostatnioZatopiony) mapa.oznaczPustePolaWokolZatopionegoStatku(stateczek[i]);
 			 if (Logger.getDebugEnabled()) {
-				 wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony(true, ostatnioZatopiony);
+				 System.out.print("Debug:    TRAFIONY!!");
+				 if (ostatnioZatopiony) System.out.print(" i ZATOPIONY!!");
+				 System.out.println();
 			 }
 		 }
 	 }
@@ -191,10 +193,6 @@ for(int i = 0;i<Mapa.ILOSC_STATKOW_NA_PLANSZY;i++) wszystkieZatopione&= statecze
 		return wszystkieZatopione;
 }
 
-void wypiszKomunikatNaKonsoliJesliTrafionyLubZatopiony(boolean ostatnioTrafiony, boolean ostatnioZatopiony){
-		if (ostatnioTrafiony) System.out.println("Debug:    TRAFIONY!!");
-		if (ostatnioZatopiony) System.out.println("Debug:    TRAFIONY ZATOPIONY!!");
-}
 
 boolean walidujWprowadzoneDane(String strzal){
 		if (strzal.length()!=2) return false;
