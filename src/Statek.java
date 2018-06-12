@@ -229,34 +229,10 @@ return masztTrafiony[maszt];
 					}
 				i++;
 				}
-
-				/*
-				W tym miejscu byla metoda, ktora wplywa na wartosc pol metody Statek:
-				zatopiony=??;
-			ostatnioZatopiony=??;
-				 */
 	}
 
 	boolean jestZatopiony() {
  			return zatopiony;
 	}
-
-
-
-	boolean sprawdzCzyWlasnieZatopiony() {
-			boolean zatopionyyy=true;
-			for (int i=0;i<iloscMasztow;i++) zatopionyyy&= isMasztTrafiony(i);
-			if (zatopionyyy) {
-			zatopiony=true;
-				System.out.println("Wlasnie zatopiony!");
-			return true;
-		}
-		else return false;
-	}
-
-
-
-
-
 }
 
