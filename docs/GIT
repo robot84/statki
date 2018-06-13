@@ -6,11 +6,18 @@
 
 Separating different types of change such as bug fixes, new feature, and improvements into different sets of commits
  will allow you and your team members to easily understand why and how those changes were made.
+ git add a
+ git commit a -m "bugfix, in a"
+ git add b
+ git commit b -m "new feature, in b"
+
 
 Dobry commit message:
 1st line: Abstract of the contents changed by commits
 2nd line: Blank line
 3rd line and the following lines: Reason for changes
+
+
 
 robimy zmiany i add
 robimy commit, jest ok,
