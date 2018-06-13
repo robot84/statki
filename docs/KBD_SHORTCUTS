@@ -1,3 +1,4 @@
 Alt-4 # show/hide console output window (Tool window)
 Ctrl+SHIFT+K commit and push
 Ctrl+K commit
+Ctrl+F12 wyswietla okno ze struktura pliku (nazwy metod)
