@@ -25,3 +25,10 @@ git push origin master
 
 # zmiana galazki, tworzenie nowej jak nie istnieje
 git checkout <branch_name>
+
+# a jak chcesz wywalic jakies pliki z repo, bo juz ich nie potrzebujesz, albo przypadkiem sie tam dostaly
+git rm [-r] [-f] <files>
+# oczywiscie to sie stanie dopiero w commicie, teraz je tylko oznaczyles jako do usuniecia
+git commit -m "usunalem"
+# i jak zawsze mozna zmiany popchnac na remote repo
+git push origin master
