@@ -1,0 +1,27 @@
+#------------------------
+#tylko raz, przy tworzeniu repo
+#------------------------
+
+git init
+
+
+#------------------------
+# Jak zrobisz zmiany w plikach
+#------------------------
+
+# oznaczasz pliki, w ktorych cos zmieniles, jako idace do commitu
+# (bo mozesz je commitowac pozniej, a nie teraz, jak ich nie oznaczysz)
+git add <file>
+git add .
+
+# jak juz oznaczyles, co chcesz wyslac do repo to wysylasz zmiany do lokalnego repo na dysku twoim
+git commit -m "Zmiany"
+
+# a jak po dniu ciezkiej pracy na lotnisku uzyskasz dostep do neta i bedziesz chcial, zeby inni zobaczyli zmiany
+# to robisz push. Jak pracujesz nad projektem sam i nigdy go swiat nie zobaczy, to niby nie musisz tego robic
+# ale warto miec kopie zapasowa w chmurze, czyz nie?
+git push origin <branch>
+git push origin master
+
+# zmiana galazki, tworzenie nowej jak nie istnieje
+git checkout <branch_name>
