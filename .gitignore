@@ -1,6 +1,12 @@
 # Compiled class file
 *.class
 
+# IntelliJ files
+.idea/
+
+# xml
+./*.xml
+
 # Log file
 *.log
 
