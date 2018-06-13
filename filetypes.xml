@@ -1,6 +1,7 @@
 <application>
   <component name="FileTypeManager" version="17">
     <extensionMap>
+      <mapping pattern="LESSON_LEARNT" type="PLAIN_TEXT" />
       <mapping pattern="KBD_SHORTCUTS" type="PLAIN_TEXT" />
       <mapping pattern="LIMITATIONS" type="PLAIN_TEXT" />
     </extensionMap>
