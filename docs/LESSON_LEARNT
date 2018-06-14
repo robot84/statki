@@ -75,6 +75,13 @@ Przyklad:
 byte d=2,e=2,f=2;
         f=d+e; // WRONG
         f=((byte)(d+e));  // OK
+
+Operatory bitowe tak samo!
+byte a=3,b=6,c=9;
+a=b | c; // WRONG
+a=(byte)(b|c); // OK
+Ale ja bym uwazal, bo co sie dzieje jak on rozszerza byte na int?? co ze znakiem plusa/minusa?
+i co jak odcina cos z int zeby przeksztalcic na byte?? Do sprawdzenia, jak chcemy tego bezpiecznie uzywac
 ---------------------------
 Uproszczenie takiej metody. Napisac latwo, ale przeczytac i zrozumiec trudniej.
 
@@ -100,3 +107,6 @@ zeby test nie failowal z powodu braku obiektu, to juz test przechodzi?
 No nie ma sensu. A wiec ten test nie testowal wcale tej metody!
 Czyli nie kazda metode da sie przetestowac w dwoch przypadkach: kiedy zwraca true, i kiedy false,
 bo przeciez domyslnie metoda zawsze zwraca jedna z tych wartosci. wiec taki przypadek nie testuje sie.
+----------------------
+Kolejnosc modyfikatorow od lewej do prawej:
+public / protected / private abstract static final

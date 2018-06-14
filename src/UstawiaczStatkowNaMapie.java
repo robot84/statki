@@ -1,5 +1,5 @@
 public class UstawiaczStatkowNaMapie {
-    final static int MAX_PROB_USTAWIEN_STATKU=1000;
+    static final int MAX_PROB_USTAWIEN_STATKU=1000;
 
     static int ustawPrzypadkowoFlote(Statek[] flota, Mapa mapa){
         if(flota.length != Mapa.ILOSC_STATKOW_NA_PLANSZY){

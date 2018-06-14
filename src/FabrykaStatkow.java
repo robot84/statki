@@ -1,4 +1,4 @@
-public class FabrykaStatkow {
+ class FabrykaStatkow {
     Statek utworz4masztowiec() {
         return new Statek(4);
     }

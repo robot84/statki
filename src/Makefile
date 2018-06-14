@@ -3,7 +3,7 @@ BUILD_NR_MINUS_1 := $(shell cat BUILD_MINUS_1)
 ; COMPILE_OPTIONS := -d ../class
 
 all1: GUI.class StaticVariables.class MacierzSasiedztwa.class Mapa.class ObrazekKoncaGry.class Pole.class \
-PoleMacierzySasiedztwa.class Statek.class GameLauncher.class
+PoleMacierzySasiedztwa.class Statek.class Main.class
 	echo Sprawdzam czy jest cos do roboty...
 	make build
 
@@ -31,8 +31,8 @@ PoleMacierzySasiedztwa.class: PoleMacierzySasiedztwa.java
 Statek.class: Statek.java
 	javac $(COMPILE_OPTIONS) Statek.java
 
-GameLauncher.class: GameLauncher.java
-	javac $(COMPILE_OPTIONS) GameLauncher.java
+Main.class: Main.java
+	javac $(COMPILE_OPTIONS) Main.java
 
 
 archive:
@@ -66,8 +66,8 @@ build:
 	rmdir backup/build-$(BUILD_NR)
 	bash inc_build_nr.bash
 
-run:	GameLauncher.class
-	java GameLauncher
+run:	Main.class
+	java Main
 
 
 clean:
