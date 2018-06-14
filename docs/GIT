@@ -78,3 +78,8 @@ git rm [-r] [-f] <files>
 git commit -m "usunalem"
 # i jak zawsze mozna zmiany popchnac na remote repo
 git push origin master
+
+
+
+git add -u :/ adds all modified file changes to the stage
+git add * :/ adds modified and any new files (that's not gitignore'ed) to the stage

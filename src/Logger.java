@@ -1,7 +1,7 @@
 public class Logger{
     //DEBUG < INFO < WARN < ERROR < FATAL
-        static boolean debugEnabled=false; // GameLauncher -d
-        static boolean deepDebugEnabled=false; // GameLauncher -dd
+        static boolean debugEnabled=false; // Main -d
+        static boolean deepDebugEnabled=false; // Main -dd
 
     private static void printMessage(String level, String message){
         System.out.println(level+" "+message);
