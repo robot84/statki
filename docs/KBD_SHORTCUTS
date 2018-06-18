@@ -2,3 +2,9 @@ Alt-4 # show/hide console output window (Tool window)
 Ctrl+SHIFT+K commit and push
 Ctrl+K commit
 Ctrl+F12 wyswietla okno ze struktura pliku (nazwy metod)
+Ctrl+Shift+F  - szukaj wszedzie
+Ctrl-Shift-/ (un)komentuje zaznaczony blok
+
+Ant->init->Execute on->Before Compilation
+File->Settings->Editor->Font->16
+File->project structure->ustaw katalog glowny projektu jako resources root, a nie katalog img

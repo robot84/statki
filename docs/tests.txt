@@ -2,4 +2,4 @@
 no i napisac 8 TC dla Statek oraz 4 TC dla Pole
 
 
-1:20 h - 5 nowych TC dla klasy Statek + zabawy z Makefile + rozdzielenie klas do osobnych plikow java, tak zeby kazdy plik zawieral tylko jedna klase + utworzenie klasy StaticVariables + zmiana cyfry 3 na stala we wszystkich plikach oprocz klasa Mapa (jest defekt). test wykazal defekt w kodzie, ktore nie zauwazylismy wczesniej, albo go olalismy jako malo znaczacy
+1:20 h - 5 nowych TC dla klasy Statek + zabawy z Makefile + rozdzielenie klas do osobnych plikow java, tak zeby kazdy plik zawieral tylko jedna klase + utworzenie klasy StaticVariables + zmiana cyfry 3 na stala we wszystkich plikach oprocz klasa MapaOBSOLETE (jest defekt). test wykazal defekt w kodzie, ktore nie zauwazylismy wczesniej, albo go olalismy jako malo znaczacy

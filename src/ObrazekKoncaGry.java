@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class ObrazekKoncaGry extends JPanel{
+class ObrazekKoncaGry extends JPanel{
 		Image gratulacjeObrazek=(new ImageIcon(getClass().getResource("/img/gratulacje.jpg"))).getImage();
 
 

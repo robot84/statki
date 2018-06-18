@@ -110,3 +110,69 @@ bo przeciez domyslnie metoda zawsze zwraca jedna z tych wartosci. wiec taki przy
 ----------------------
 Kolejnosc modyfikatorow od lewej do prawej:
 public / protected / private abstract static final
+
+
+
+class asdf{
+MapaOBSOLETE mapaOBSOLETE;
+
+    GUIWidok(){
+        mapaOBSOLETE =new MapaOBSOLETE();
+        this(mapaOBSOLETE); // Error: cannot reference before supertype constructor has been called
+    }
+
+    GUIWidok(MapaOBSOLETE mapaOBSOLETE) {
+        this.mapaOBSOLETE=mapaOBSOLETE;
+        }
+    }
+
+    Problem w tym, ze
+    1. mapaOBSOLETE powinna byc statyczna, bo inaczej nie istnieje jeszcze,
+    bo jestesmy w trakcie tworzenia klasy, jak jestesmy w konstruktorze i nie mozemy sie odwolywac
+    jeszcze do pol klasy, bo sa dopiero tworzone. (hee, no to jaki sens ma this.mapaOBSOLETE=mapaOBSOLETE; ???
+    czemu nie ma bledu??
+    2. this() musi byc pierwsza komenda w konstruktorze
+
+    Rozwiazanie:
+
+    GUIWidok(){
+            this(new MapaOBSOLETE());
+        }
+
+    Teraz this jest na poczatku konstruktora, oraz nie uzywamy wcale zmiennej 'mapaOBSOLETE', ktora jest polem klasy :)
+
+
+
+
+    Kod dzialal swietnie. Tworzyl gui.
+    Az pewnego razu z jakiegos powodu utworzylem drugie gui.
+    Niby nie powinno sie to stac, bo gui i tak potrzebuje jedno.
+    Ale utworzylem fake-gui z jakiegos powodu, a pozniej normalne.
+    Myslalem ze smieciarka pochlonie to pierwsze wiec nie ma problemu.
+    I pochlanela.
+    Ale konstruktor gui zostal wykonany sumarycznie dwa razy, a w nim takie cos:
+
+    MapaGUI(MapaModel mapaModel) {
+    if (d.height > 1024) {
+                SIZE_OF_SQUARE += 10; // TU BUG
+                GAP_BEETWEEN_SQUARES += 2; // TU BUG
+                }
+
+Kwadraty staly sie dziwnie wielkie. Na poczatku nie czailem co sie dzieje. Wydawalo mi sie,
+ze moze kwadraty sa takie same, a okno za male. Ta klasa nie byla przystosowana do tworzenia
+wiecej niz jednej jej instancji.
+Zmiana kodu na:
+if (d.height > 1024) {
+            sizeOfSquare = SIZE_OF_SQUARE_FOR_BIG_SCREEN_RESOLUTION;
+            gapBeetweenSquares = GAP_BEETWEEN_SQUARES_FOR_BIG_SCREEN_RESOLUTION;
+
+rozwiazala problem
+
+Wniosek: piszac klase upewnij sie w testach, ze mozna bezpiecznie utworzyc wiecej niz jeden obiekt tej klasy,
+i wszystko jest ok. To, ze utworzysz jeden i jest ok, o niczym jeszcze nie swiadczy
+
+Wniosek pozniejszy: hmm, wszystkiemu jednak winna zmienna SIZE_OF_SQUARE zadeklarowana jako static!!
+Inaczej kazdy obiekt dostalby swoja instancje i byloby ok.
+Wniosek: uwazaj na modyfikacje zmiennych statycznych!! Modyfikujesz je w jednym obiekcie, a
+inny obiekt widzi te zmiane. I jesli nie planowales uzyc nigdy wiecej niz jednego... to po Ci static?
+

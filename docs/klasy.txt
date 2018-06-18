@@ -17,12 +17,12 @@ class Statek extends StaticVariables  {
 class GUI extends StaticVariables {
 	JFrame ramka;
 	JPanel panelCentralny;
-	Mapa mapa;
+	MapaOBSOLETE mapaOBSOLETE;
 	Statek[] s;
 	JLabel infoIloscRuchow;
 	JLabel zapytajOstrzal;
 	JTextField xyStrzalu;
 	JTextField koniecGry;
 
-	GUI(Mapa map,Statek[] statki){
+	GUI(MapaOBSOLETE map,Statek[] statki){
 	void refreshIloscRuchow(){

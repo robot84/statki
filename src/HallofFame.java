@@ -106,7 +106,7 @@ if (wynik<f.getScore()) return true; else return false;
 void dodajWynikDoRankingu(int wynik){
 // w tej metodzie nie widac tak naprawde procesu dodawania... bo jest on robiony po kliknieciu OK w oknie
 // czyli w ActionListener buttonOK....
-// tu tylko tworzymy okno i czekamy na wpisanie imienia do niego....
+// tu tylko tworzymy oknoGlowne i czekamy na wpisanie imienia do niego....
 		NameDialogWindow dialog0;
 		dialog0=new NameDialogWindow(wynik);
 		dialog0.setLocationRelativeTo(null);
@@ -207,7 +207,7 @@ if (Logger.isDebugEnabled()) 	System.out.println("Debug: jestem w metodzie remov
 
 	/*
 
-	 +---+--------JFrame ramka-400x500-------+---+
+	 +---+--------JFrame oknoGlowne-400x500-------+---+
 	 |JL main_label    NORTH                     |
 	 |   +------------panel0-CENTER----------+   +
 	 |   |                                   |   |
@@ -270,7 +270,7 @@ if (Logger.isDebugEnabled()) 	System.out.println("Debug: jestem w metodzie remov
 			this.getContentPane().add(BorderLayout.CENTER,panel0);
 			this.getContentPane().add(BorderLayout.NORTH,main_label);
 			this.getContentPane().add(BorderLayout.SOUTH,panelSOUTH);
-//			panel1.addMouseListener(new SluchaczMyszy());
+//			lewyPanel.addMouseListener(new SluchaczMyszy());
 
 			panel0.add(panel1);
 			panel0.add(panel2);
@@ -339,7 +339,7 @@ if (Logger.isDebugEnabled()) 	System.out.println("Debug: jestem w metodzie remov
 	JButton buttonOK=new JButton("OK");
 	int score=0;
 
-	// jesli utworzymy okno konstruktorem bezparametrowym, czyli nie interesuje nas wynik, to niech on bedzie 50
+	// jesli utworzymy oknoGlowne konstruktorem bezparametrowym, czyli nie interesuje nas wynik, to niech on bedzie 50
 	NameDialogWindow(){
 	this(50);
 	}

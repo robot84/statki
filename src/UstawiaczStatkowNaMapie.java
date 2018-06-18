@@ -1,16 +1,16 @@
-public class UstawiaczStatkowNaMapie {
+class UstawiaczStatkowNaMapie {
     static final int MAX_PROB_USTAWIEN_STATKU=1000;
 
-    static int ustawPrzypadkowoFlote(Statek[] flota, Mapa mapa){
-        if(flota.length != Mapa.ILOSC_STATKOW_NA_PLANSZY){
-            Logger.fatal("UstawiaczStatkowNaMapie.ustawPrzypadkowo: flota.length != Mapa.ILOSC_STATKOW_NA_PLANSZY");
+    static int ustawPrzypadkowoFlote(Statek[] flota, MapaOBSOLETE mapaOBSOLETE){
+        if(flota.length != MapaOBSOLETE.ILOSC_STATKOW_NA_PLANSZY){
+            Logger.fatal("UstawiaczStatkowNaMapie.ustawPrzypadkowo: flota.length != MapaOBSOLETE.ILOSC_STATKOW_NA_PLANSZY");
             System.exit(-1);
         }
 
         for(int i = 0;i<flota.length;i++){
             flota[i].przygotujDoPonownegoUstawienia();
             for(int w=0;w<MAX_PROB_USTAWIEN_STATKU;w++)
-                if ( (!flota[i].ustawLosowoPolozenieStatku(mapa)) ) {
+                if ( (!flota[i].ustawLosowoPolozenieStatku(mapaOBSOLETE)) ) {
                     // co 10 nieudanych prob pisz blad (przy probach 9,19,29,...)
                     if(Logger.isDeepDebugEnabled() && w%100==99) System.out.println("DeepDebug: Proba "+w+" NIE MOZNA USTAWIC STATKU!");
                 }
@@ -21,15 +21,15 @@ public class UstawiaczStatkowNaMapie {
                 }
 
             //	   statkiNaPlanszy[i].getAll();
-            mapa.dodajStatek(flota[i]);
-            if (Logger.isDeepDebugEnabled()) mapa.wyswietlMapePozycjiStatkow();
+            mapaOBSOLETE.dodajStatek(flota[i]);
+            if (Logger.isDeepDebugEnabled()) mapaOBSOLETE.wyswietlMapePozycjiStatkow();
         }
         return 0;
     }
-    static int ustawCentralnie(Statek[] flota, Mapa mapa){
+    static int ustawCentralnie(Statek[] flota, MapaOBSOLETE mapaOBSOLETE){
         return 0;
     }
-    static int ustawNaObrzezach(Statek[] flota, Mapa mapa){
+    static int ustawNaObrzezach(Statek[] flota, MapaOBSOLETE mapaOBSOLETE){
         return 0;
     }
 }

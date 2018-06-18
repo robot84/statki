@@ -3,15 +3,15 @@ import org.junit.Assert;
 
 // TODO: TC gdy probojemy postawic statek poza plansza
 
-public class MapaTest{
+public class MapaOBSOLETETest {
 
 	public static void main(String args[]) {
-		org.junit.runner.JUnitCore.main("MapaTest");
+		org.junit.runner.JUnitCore.main("MapaOBSOLETETest");
 	}
 // 8 TC, ktore testuja, czy mozliwe jest postawienie statku obok drugiego
  
 	@org.junit.Test public void testMoznaPostawicStatekFALSE1() {
-		Mapa m = new Mapa();
+		MapaOBSOLETE m = new MapaOBSOLETE();
 		Statek statek=new Statek();
 		Statek statek2=new Statek();
 		Pole[] p=new Pole[3];
@@ -40,7 +40,7 @@ public class MapaTest{
 	}
 
 	@org.junit.Test public void testMoznaPostawicStatekFALSE2() {
-		Mapa m = new Mapa();
+		MapaOBSOLETE m = new MapaOBSOLETE();
 		Statek statek=new Statek();
 		Statek statek2=new Statek();
 		Pole[] p=new Pole[3];
@@ -69,7 +69,7 @@ public class MapaTest{
 	}
 
 	@org.junit.Test public void testMoznaPostawicStatekFALSE3() {
-		Mapa m = new Mapa();
+		MapaOBSOLETE m = new MapaOBSOLETE();
 		Statek statek=new Statek();
 		Statek statek2=new Statek();
 		Pole[] p=new Pole[3];
@@ -98,7 +98,7 @@ public class MapaTest{
 	}
 
 	@org.junit.Test public void testMoznaPostawicStatekFALSE4() {
-		Mapa m = new Mapa();
+		MapaOBSOLETE m = new MapaOBSOLETE();
 		Statek statek=new Statek();
 		Statek statek2=new Statek();
 		Pole[] p=new Pole[3];
@@ -127,7 +127,7 @@ public class MapaTest{
 	}
 
 	@org.junit.Test public void testMoznaPostawicStatekFALSE5() {
-		Mapa m = new Mapa();
+		MapaOBSOLETE m = new MapaOBSOLETE();
 		Statek statek=new Statek();
 		Statek statek2=new Statek();
 		Pole[] p=new Pole[3];
@@ -156,7 +156,7 @@ public class MapaTest{
 	}
 
 	@org.junit.Test public void testMoznaPostawicStatekFALSE6() {
-		Mapa m = new Mapa();
+		MapaOBSOLETE m = new MapaOBSOLETE();
 		Statek statek=new Statek();
 		Statek statek2=new Statek();
 		Pole[] p=new Pole[3];
@@ -185,7 +185,7 @@ public class MapaTest{
 	}
 
 	@org.junit.Test public void testMoznaPostawicStatekFALSE7() {
-		Mapa m = new Mapa();
+		MapaOBSOLETE m = new MapaOBSOLETE();
 		Statek statek=new Statek();
 		Statek statek2=new Statek();
 		Pole[] p=new Pole[3];
@@ -206,7 +206,7 @@ public class MapaTest{
 	}
 
 	@org.junit.Test public void testMoznaPostawicStatekFALSE8() {
-		Mapa m = new Mapa();
+		MapaOBSOLETE m = new MapaOBSOLETE();
 		Statek statek=new Statek();
 		Statek statek2=new Statek();
 		Pole[] p=new Pole[3];

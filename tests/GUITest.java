@@ -6,7 +6,7 @@ public class GUITest{
 
 	@org.junit.Test public void testKoniecGry() throws InterruptedException {
 		Statek[] s=new Statek[3];
-		Mapa ma=new Mapa();
+		MapaOBSOLETE ma=new MapaOBSOLETE();
                 GUI gui=new GUI(ma,s);
 
 		for(int i=0;i<3;i++)

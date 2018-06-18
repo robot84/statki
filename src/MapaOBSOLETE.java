@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 
-// obiekt Mapa uzywany do grania na konsoli tekstowej
+// obiekt MapaOBSOLETE uzywany do grania na konsoli tekstowej
 // po wprowadzeniu GUI uzyteczny chyba tylko do debugowania
 // dlatego nie pisalismy testow do tej klasy
 // wiec program powinien dbac o jej aktualizacje po kazdym strzale
@@ -10,36 +10,34 @@ import java.awt.*;
 // natomiast wyswietlanie mapy na konsoli tekstowej 
 // uzyteczne tylko do debugowania
 
-public class Mapa  {
-	static final int ILOSC_STATKOW_NA_PLANSZY=10;
-final static int PLANSZA_MAX_X=10;
-final static int PLANSZA_MAX_Y=10;
+class MapaOBSOLETE {
+static final int ILOSC_STATKOW_NA_PLANSZY=10;
+static final int PLANSZA_MAX_X=10;
+static final int PLANSZA_MAX_Y=10;
 /* Pole.java SHIP_SHOOTED ogranicza max wartosci  PLANSZA_MAX_X i  PLANSZA_MAX_Y!! */
 
-final static int LEFT_OFFSET_FROM_PANEL=20; // start drawing figures with this offset from left line of panel
-final static int UPPER_OFFSET_FROM_PANEL=20; // start drawing figures with this offset from upper line of panel
-static int SIZE_OF_SQUARE=30;
-static int GAP_BEETWEEN_SQUARES=5;
-//final static int LOWER_END_OF_IMAGE=PLANSZA_MAX_Y*(SIZE_OF_SQUARE+GAP_BEETWEEN_SQUARES); // because of fact, that y axis has got 0 point at upper line of panel, not in lower line of panel like in mathematics, we need this to know from what lower position we start drawing to up
-final static int LOWER_END_OF_IMAGE=250;
+static final int LEFT_OFFSET_FROM_PANEL=20; // start drawing figures with this offset from left line of panel
+static final int UPPER_OFFSET_FROM_PANEL=20; // start drawing figures with this offset from upper line of panel
+static  int SIZE_OF_SQUARE=30;
+static  int GAP_BEETWEEN_SQUARES=5;
+//static final int LOWER_END_OF_IMAGE=PLANSZA_MAX_Y*(SIZE_OF_SQUARE+GAP_BEETWEEN_SQUARES); // because of fact, that y axis has got 0 point at upper line of panel, not in lower line of panel like in mathematics, we need this to know from what lower position we start drawing to up
+static final int LOWER_END_OF_IMAGE=250;
 
-GameLauncher rozgrywka;
+
 int iloscWyswietlen;
 boolean[][] mapaPozycjiStatkow=new boolean[PLANSZA_MAX_Y][PLANSZA_MAX_X]; //[y][x]
 char[][] mapaStrzalow=new char[PLANSZA_MAX_Y][PLANSZA_MAX_X];
 Graphics naszPedzel;
 //	JButton przycisk;
-//JFrame ramka;
+//JFrame oknoGlowne;
 Image poleNieSprawdzone=(new ImageIcon(getClass().getResource("/img/poleUnk.jpg"))).getImage();
 Image polePudlo=(new ImageIcon(getClass().getResource("/img/polePudlo.jpg"))).getImage();
 Image poleShip=(new ImageIcon(getClass().getResource("/img/poleShip.jpg"))).getImage();
 
 
-Mapa(){
-	przygotujDoPonownegoUzycia();
-}
 
-public class MapaGUI extends JPanel{
+class MapaGUI extends JPanel{
+
 
 	MapaGUI(){
 			Toolkit tk = Toolkit.getDefaultToolkit();
@@ -210,7 +208,7 @@ int getIloscWyswietlen(){
 }
 
 boolean  moznaPostawicStatek(int y, int x){
-	// sprawdz, czy nie chcesz stawiac statku poza plansza (mapa)
+	// sprawdz, czy nie chcesz stawiac statku poza plansza (mapaOBSOLETE)
 	// jesli tak, to zwroc false
 	if (y<0 | y>=PLANSZA_MAX_Y | x<0 | x>=PLANSZA_MAX_X) return false;
 

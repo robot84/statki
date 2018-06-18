@@ -20,11 +20,11 @@ public class PoleTest {
 		Assert.assertEquals(-1, pole.getX());
 		pole.setX(-5);
 		Assert.assertEquals(-1, pole.getX());
-		pole.setX(Mapa.PLANSZA_MAX_X);
+		pole.setX(MapaOBSOLETE.PLANSZA_MAX_X);
 		Assert.assertEquals(-1, pole.getX());
-		pole.setX(Mapa.PLANSZA_MAX_X - 1);
-		Assert.assertEquals(Mapa.PLANSZA_MAX_X - 1, pole.getX());
-		pole.setX(Mapa.PLANSZA_MAX_X + 10);
+		pole.setX(MapaOBSOLETE.PLANSZA_MAX_X - 1);
+		Assert.assertEquals(MapaOBSOLETE.PLANSZA_MAX_X - 1, pole.getX());
+		pole.setX(MapaOBSOLETE.PLANSZA_MAX_X + 10);
 		Assert.assertEquals(-1, pole.getX());
 	}
 
@@ -41,11 +41,11 @@ public class PoleTest {
 		Assert.assertEquals(-1, pole.getY());
 		pole.setY(-5);
 		Assert.assertEquals(-1, pole.getY());
-		pole.setY(Mapa.PLANSZA_MAX_Y - 1);
-		Assert.assertEquals(Mapa.PLANSZA_MAX_Y - 1, pole.getY());
-		pole.setY(Mapa.PLANSZA_MAX_Y);
+		pole.setY(MapaOBSOLETE.PLANSZA_MAX_Y - 1);
+		Assert.assertEquals(MapaOBSOLETE.PLANSZA_MAX_Y - 1, pole.getY());
+		pole.setY(MapaOBSOLETE.PLANSZA_MAX_Y);
 		Assert.assertEquals(-1, pole.getY());
-		pole.setY(Mapa.PLANSZA_MAX_Y + 10);
+		pole.setY(MapaOBSOLETE.PLANSZA_MAX_Y + 10);
 		Assert.assertEquals(-1, pole.getY());
 	}
 

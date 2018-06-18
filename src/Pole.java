@@ -1,4 +1,4 @@
-public class Pole  {
+class Pole  {
 int x=0;
 int y=0;
 static final int SHIP_SHOOTED=99; // some value > PLANSZA_MAX_X & > PLANSZA_MAX_Y
@@ -9,12 +9,12 @@ public	void getAll(){
 	}
 
 public	void setX(int xx){
-		if (xx<SHIP_SHOOTED && xx<Mapa.PLANSZA_MAX_X && xx>=0) x=xx;
+		if (xx<SHIP_SHOOTED && xx< MapaOBSOLETE.PLANSZA_MAX_X && xx>=0) x=xx;
 		else x=-1;
 	}
 
 	public	void setY(int yy){
-		if (yy<SHIP_SHOOTED && yy<Mapa.PLANSZA_MAX_Y && yy>=0) y=yy;
+		if (yy<SHIP_SHOOTED && yy< MapaOBSOLETE.PLANSZA_MAX_Y && yy>=0) y=yy;
 		else y=-1;
 	}
 

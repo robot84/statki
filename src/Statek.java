@@ -80,12 +80,12 @@ return masztTrafiony[maszt];
 		for (int i=0;i<iloscMasztow;i++) System.out.println(" x: " + pozycjaStatkuMaszt[i].getX() + " y: " + pozycjaStatkuMaszt[i].getY());
 	}
 
-	boolean ustawLosowoPolozenieStatku(Mapa m){
+	boolean ustawLosowoPolozenieStatku(MapaOBSOLETE m){
 		// zwraca true, jezeli udalo sie ustawic statek
 		// jezeli sie nie udalo, to false.
 		// moze tez sie zawiesic, czytaj komentarz z stawiaj1maszt()
-		int x=(int)(Math.random()*(Mapa.PLANSZA_MAX_X)); 
-		int y=(int)(Math.random()*(Mapa.PLANSZA_MAX_Y)); 
+		int x=(int)(Math.random()*(MapaOBSOLETE.PLANSZA_MAX_X));
+		int y=(int)(Math.random()*(MapaOBSOLETE.PLANSZA_MAX_Y));
 		int pionCzyPoziom=(int)(Math.random()*2);
 		if (Logger.isDeepDebugEnabled()) {
 			if (pionCzyPoziom==0)		Logger.deepDebug("(x,y) ("+x+","+y+")"+" pionowo");
@@ -157,8 +157,8 @@ return masztTrafiony[maszt];
 	// mam wrazenie ze gra obecnie tego teez nie uzywa - potwierdzic
 		int x;
 		int y;
-		for(y=(Mapa.PLANSZA_MAX_Y-1);y>=0;y--){
-			for(x=0;x<Mapa.PLANSZA_MAX_X;x++) {
+		for(y=(MapaOBSOLETE.PLANSZA_MAX_Y-1); y>=0; y--){
+			for(x=0; x< MapaOBSOLETE.PLANSZA_MAX_X; x++) {
 				boolean jest = false;
 				for(int z=0;z<iloscMasztow;z++) if (pozycjaStatkuMaszt[z].getX()==x && pozycjaStatkuMaszt[z].getY()==y) jest = true;
 				if (jest) System.out.print("X");

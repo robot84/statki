@@ -44,11 +44,11 @@ ma co najmniej kilka bledow i ogolnie to nie robi swojej roboty zupelnie :(
 Dzien y - piatek
 0:15 opracowanie metody na archiwizowanie kodu kazdego buildu do osobnego katalogu oraz w ogole automatyczne numerowanie buildow przez Makefile/bash
 0:25 nowy algorytm rozmieszczajacy statki - prosty jak pala i swietnie dziala :)
-0:50 manipulacja panelami tak, zeby mapa byla po lewej, a pasek, gdzie wpisujemy strzal nie byl na cale okno. Plus zablokowanie mozliwosci zmiany okna.
+0:50 manipulacja panelami tak, zeby mapaOBSOLETE byla po lewej, a pasek, gdzie wpisujemy strzal nie byl na cale okno. Plus zablokowanie mozliwosci zmiany okna.
 
 Dzien z - poniedzialek
-0:40 znalezienie defectu w klasie MacierzSasiedztwa. jak wyszlo? przy ktorejs kolejnej grze program wygenerowal statki obok siebie, co jest niedopuszczalne. nie wyszlo to dlugo, bo generator jest random i wreszcie trafilo na ten case. gdyby byl poprawnie zrobiony test jednostkowy, to by do tego nie doszlo, ale klasa nie byla testowana. klasa Mapa rowniez nie byla! + zmiana "7" w mapa.java na PLANSZA_MAX_X oraz PLANSZA_MAX_Y
-0:30 napisanie 8 TC do testowania metody moznaPostawicStatek() klasy Mapa
+0:40 znalezienie defectu w klasie MacierzSasiedztwa. jak wyszlo? przy ktorejs kolejnej grze program wygenerowal statki obok siebie, co jest niedopuszczalne. nie wyszlo to dlugo, bo generator jest random i wreszcie trafilo na ten case. gdyby byl poprawnie zrobiony test jednostkowy, to by do tego nie doszlo, ale klasa nie byla testowana. klasa MapaOBSOLETE rowniez nie byla! + zmiana "7" w mapaOBSOLETE.java na PLANSZA_MAX_X oraz PLANSZA_MAX_Y
+0:30 napisanie 8 TC do testowania metody moznaPostawicStatek() klasy MapaOBSOLETE
 
 Dzien a - wtorek
 2:00 dodanie obrazka gdy koniec gry  - i tak nie dziala + refactoring kodu zeby byl czytelniejszy. podzial jednej metody na kilka
@@ -71,7 +71,7 @@ Dzien po tygodniu przerwy na sesje na uczelni - sroda
 0:10 znalazlem issue. LESSON LEARNT. Pole.java nie bylo skompilowane. 
 	DZIALA SKALOWANIE MAPY NA OSI Y. HURRA
 0:30 wyswietlanie fajnej mapki tekstowej strzalow  w trybie debug, obslugujacej plansze wieksze niz 9x9 (do 99x99)
-0:30 auto zmiana wielkosci ramki i panelu, tak zeby mapa zawsze miescila sie idealnie na panelu i nie byla ani za duza, ani za mala
+0:30 auto zmiana wielkosci ramki i panelu, tak zeby mapaOBSOLETE zawsze miescila sie idealnie na panelu i nie byla ani za duza, ani za mala
 
 Ostatecznie zakonczylem funkcjonalnosc skalowania mapy. Ver 0.6 idzie do SIT testow :)
 

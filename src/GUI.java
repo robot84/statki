@@ -3,8 +3,8 @@ import java.awt.event.*;
 import java.awt.*;
 /*
 
-   +--------JFrame ramka-600x380---------------+
-   |          panelCentralny CENTER            |
+   +--------JFrame oknoGlowne-600x380---------------+
+   |          panelGlowny CENTER            |
    | +panel1_290x300----+ +panel2_290x300----+ |
    | |                  | |                  | |
    | | +map_0x300-----+ | |                  | |
@@ -26,16 +26,15 @@ import java.awt.*;
 
 
 class GUI  {
-static final String VERSION="v0.9 build 683";
 static final int MIEJSCE_NA_LABEL_I_JTFstrzalW=40; // tyle, zeby sie zmiesily
 static final int PANEL2_SIZE_X=290; // czemu tyle? a zeby sie obrazek zmiescil
 JFrame ramka;
 ObrazekKoncaGry obrazKoncaGry=new ObrazekKoncaGry();
 JPanel panelCentralny; // ten zawiera dwa ponizsze panele:
-JPanel panel1; // tu bedzie mapa i jest z lewej strony okna
+JPanel panel1; // tu bedzie mapaOBSOLETE i jest z lewej strony okna
 JPanel panel2; // a ten jest pusty i jest z prawej strony okna
-Mapa mapa;
-Mapa.MapaGUI mapaGui;
+MapaOBSOLETE mapaOBSOLETE;
+MapaOBSOLETE.MapaGUI mapaGui;
 Statek[] stateczek;
 HallofFame hall;
 JLabel infoIloscRuchow;
@@ -45,13 +44,13 @@ JTextField koniecGry;
 Game rozgrywka;
 Pole poleOstrzeliwane =new Pole();
 
-GUI(Mapa map, Statek[] statki, Game partyjkaGry){
+GUI(MapaOBSOLETE map, Statek[] statki, Game partyjkaGry){
 		rozgrywka=partyjkaGry;
 
-		mapa=map; // zeby klasy wewnetrzne tez mialy dostep do tego
+		mapaOBSOLETE =map; // zeby klasy wewnetrzne tez mialy dostep do tego
 		stateczek =statki;// zeby klasy wewnetrzne tez mialy dostep do tego
 	//Logger.deepDebug("stateczek[0].toString() "+statki[0].getIloscMasztow());
-		mapaGui= mapa.new MapaGUI();
+		mapaGui= mapaOBSOLETE.new MapaGUI();
 		panelCentralny=new JPanel();
 		panel1=new JPanel();
 		panel2=new JPanel();
@@ -63,7 +62,7 @@ GUI(Mapa map, Statek[] statki, Game partyjkaGry){
 		koniecGry=new JTextField("Good game!");
 
 		int panel12sizeY=mapaGui.getSizeY()+MIEJSCE_NA_LABEL_I_JTFstrzalW;
-		int panel1sizeX=(Mapa.PLANSZA_MAX_X*(Mapa.GAP_BEETWEEN_SQUARES+Mapa.SIZE_OF_SQUARE)+Mapa.LEFT_OFFSET_FROM_PANEL*2);
+		int panel1sizeX=(MapaOBSOLETE.PLANSZA_MAX_X*(MapaOBSOLETE.GAP_BEETWEEN_SQUARES+ MapaOBSOLETE.SIZE_OF_SQUARE)+ MapaOBSOLETE.LEFT_OFFSET_FROM_PANEL*2);
 		panel2.setPreferredSize(new Dimension(PANEL2_SIZE_X, panel12sizeY));
 		panel1.setPreferredSize(new Dimension(panel1sizeX, panel12sizeY));
 		if (Logger.isDebugEnabled()) System.out.println("Panel1 x size:"+panel1sizeX);
@@ -73,7 +72,7 @@ GUI(Mapa map, Statek[] statki, Game partyjkaGry){
 		panel1.add(mapaGui);
 		panel1.add(zapytajOstrzal);
 		panel1.add(JTFstrzalW);
-		//		panel2.setBackground(Color.darkGray);
+		//		prawyPanel.setBackground(Color.darkGray);
 		panel1.setLayout(new BoxLayout(panel1,BoxLayout.Y_AXIS));
 
 		JMenuBar menu=new JMenuBar();
@@ -93,14 +92,14 @@ GUI(Mapa map, Statek[] statki, Game partyjkaGry){
 		menu.add(menuScore);
 		menu.add(menuHelp);
 
-		ramka = new JFrame("Statki " + VERSION);
+		ramka = new JFrame("Statki " + Main.APP_VERSION);
 		ramka.setJMenuBar(menu);
 		ramka.getContentPane().add(BorderLayout.CENTER,panelCentralny);
 		ramka.getContentPane().add(BorderLayout.SOUTH,infoIloscRuchow);
 		ramka.pack();
 		ramka.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ramka.setVisible(true);
-		//	ramka.setResizable(false);
+		//	oknoGlowne.setResizable(false);
 		ramka.addKeyListener(new SluchaczKlawiatury());
 		mapaGui.addMouseListener(new SluchaczMyszy());
 
@@ -134,9 +133,9 @@ void przygotujDoPonownegoUzyciaGUI(){
 void procesujStrzal(){
 
 	/*  chyba ma za zadanie zliczanie ruchow. bardzo niefortunna nazwa */
-		mapa.incrementIloscWyswietlen();
+		mapaOBSOLETE.incrementIloscWyswietlen();
 
-	/* odswiez ekran(okno) */
+	/* odswiez ekran(oknoGlowne) */
 		mapaGui.repaint();
 		mapaGui.revalidate();
 		panelCentralny.repaint();
@@ -145,19 +144,19 @@ void procesujStrzal(){
 		/* jak mozna odswiezyc ilosc ruchow ?? */
 		refreshIloscRuchow();
 
-		mapa.aktualizujMapeStrzalow(poleOstrzeliwane);
+		mapaOBSOLETE.aktualizujMapeStrzalow(poleOstrzeliwane);
 
 		/* dla wszystkich statkow sprawdz
 		czy zostaly trafione
 		 */
-	 for(int i = 0;i<Mapa.ILOSC_STATKOW_NA_PLANSZY;i++) {
+	 for(int i = 0; i< MapaOBSOLETE.ILOSC_STATKOW_NA_PLANSZY; i++) {
 	 	Logger.deepDebug("statek nr="+i+" "+stateczek[i].toString());
 
 		if(!stateczek[i].jestZatopiony()){
 			if (stateczek[i].stoiNaPolu(poleOstrzeliwane)) {
 				 stateczek[i].zostajeTrafionyWPole(poleOstrzeliwane);
 
-				 if (stateczek[i].jestZatopiony()) mapa.oznaczPustePolaWokolZatopionegoStatku(stateczek[i]);
+				 if (stateczek[i].jestZatopiony()) mapaOBSOLETE.oznaczPustePolaWokolZatopionegoStatku(stateczek[i]);
 				// ten kod ponizej,  zeby wypisac na konsole komunikat TRAFIONY albo TRAFIONY ZATOPIONY
 				 if (Logger.isDebugEnabled()) {
 					 System.out.print("Debug:    TRAFIONY!!");
@@ -177,8 +176,8 @@ void procesujStrzal(){
 				hall.setVisible();
 				if (Logger.isDebugEnabled())
 						hall.showFameListInConsole();
-				if (hall.czyWynikNadajeSieDoRankingu((mapa.getIloscWyswietlen())))
-						hall.dodajWynikDoRankingu(mapa.getIloscWyswietlen());
+				if (hall.czyWynikNadajeSieDoRankingu((mapaOBSOLETE.getIloscWyswietlen())))
+						hall.dodajWynikDoRankingu(mapaOBSOLETE.getIloscWyswietlen());
 
 		}
 } // end of method
@@ -186,7 +185,7 @@ void procesujStrzal(){
 boolean wszystkieStatkiZatopione()
 {
 boolean wszystkieZatopione=true;
-for(int i = 0;i<Mapa.ILOSC_STATKOW_NA_PLANSZY;i++) wszystkieZatopione&= stateczek[i].jestZatopiony();
+for(int i = 0; i< MapaOBSOLETE.ILOSC_STATKOW_NA_PLANSZY; i++) wszystkieZatopione&= stateczek[i].jestZatopiony();
 
 		return wszystkieZatopione;
 }
@@ -228,7 +227,7 @@ void odlaczSluchaczaJTF(){
 
 void wyswietlObrazekKoncaGry()
 {
-		if (Logger.isDebugEnabled())   System.out.println("ZATOPILES WSZYSTKO!! w "+mapa.getIloscWyswietlen() + " ruchach.");
+		if (Logger.isDebugEnabled())   System.out.println("ZATOPILES WSZYSTKO!! w "+ mapaOBSOLETE.getIloscWyswietlen() + " ruchach.");
 		obrazKoncaGry.setPreferredSize(new Dimension(200, 260));
 		panel2.add(obrazKoncaGry);
 		JTFstrzalW.setEnabled(false);
@@ -238,7 +237,7 @@ void wyswietlObrazekKoncaGry()
 
 
 void refreshIloscRuchow(){
-		infoIloscRuchow.setText("Wykonales " + (mapa.getIloscWyswietlen()) + " ruchow.");
+		infoIloscRuchow.setText("Wykonales " + (mapaOBSOLETE.getIloscWyswietlen()) + " ruchow.");
 }
 
 
@@ -316,21 +315,21 @@ class SluchaczMyszy implements MouseListener {
 
 				// wyswietlamy liste pol na konsoli:
 				/*
-				   for(int y=0;y<Mapa.PLANSZA_MAX_Y;y++){
-				   for(int x=0;x<Mapa.PLANSZA_MAX_X;x++) {
-				   System.out.println("field ("+x+","+y+"): ("+(x*(Mapa.GAP_BEETWEEN_SQUARES+Mapa.SIZE_OF_SQUARE)+Mapa.LEFT_OFFSET_FROM_PANEL)+","+((Mapa.LOWER_END_OF_IMAGE-(y*(Mapa.GAP_BEETWEEN_SQUARES+Mapa.SIZE_OF_SQUARE)+Mapa.UPPER_OFFSET_FROM_PANEL)))+") size: "+Mapa.SIZE_OF_SQUARE);
+				   for(int y=0;y<MapaOBSOLETE.PLANSZA_MAX_Y;y++){
+				   for(int x=0;x<MapaOBSOLETE.PLANSZA_MAX_X;x++) {
+				   System.out.println("field ("+x+","+y+"): ("+(x*(MapaOBSOLETE.GAP_BEETWEEN_SQUARES+MapaOBSOLETE.SIZE_OF_SQUARE)+MapaOBSOLETE.LEFT_OFFSET_FROM_PANEL)+","+((MapaOBSOLETE.LOWER_END_OF_IMAGE-(y*(MapaOBSOLETE.GAP_BEETWEEN_SQUARES+MapaOBSOLETE.SIZE_OF_SQUARE)+MapaOBSOLETE.UPPER_OFFSET_FROM_PANEL)))+") size: "+MapaOBSOLETE.SIZE_OF_SQUARE);
 				   }
 				   } 
 				 */
 				// konwersja pozycji klikniecia myszka w wspolrzedne pola na planszy
-				int xx=(e.getX()-Mapa.LEFT_OFFSET_FROM_PANEL)/(Mapa.GAP_BEETWEEN_SQUARES+Mapa.SIZE_OF_SQUARE);
-				if (((e.getX()-Mapa.LEFT_OFFSET_FROM_PANEL)%(Mapa.GAP_BEETWEEN_SQUARES+Mapa.SIZE_OF_SQUARE))>Mapa.SIZE_OF_SQUARE) return; // strzal w przestrzen miedzy polami
-				if (e.getX()<Mapa.LEFT_OFFSET_FROM_PANEL) return; //strzal na lewo od pol	
-				if (e.getX()>(Mapa.LEFT_OFFSET_FROM_PANEL+(Mapa.PLANSZA_MAX_X*(Mapa.GAP_BEETWEEN_SQUARES+Mapa.SIZE_OF_SQUARE)))) return; //strzal na prawo od pol	
-				int yy=(Mapa.PLANSZA_MAX_Y-1)-((e.getY()-Mapa.UPPER_OFFSET_FROM_PANEL)/(Mapa.GAP_BEETWEEN_SQUARES+Mapa.SIZE_OF_SQUARE));
-				if (((e.getY()-Mapa.UPPER_OFFSET_FROM_PANEL)%(Mapa.GAP_BEETWEEN_SQUARES+Mapa.SIZE_OF_SQUARE)>Mapa.SIZE_OF_SQUARE)) return;
-				if (e.getY()>(Mapa.PLANSZA_MAX_Y*(Mapa.GAP_BEETWEEN_SQUARES+Mapa.SIZE_OF_SQUARE)+Mapa.UPPER_OFFSET_FROM_PANEL-Mapa.GAP_BEETWEEN_SQUARES)) return; //strzal na dol od pol	
-				if (e.getY()<Mapa.UPPER_OFFSET_FROM_PANEL) return; //strzal na gore od pol	
+				int xx=(e.getX()- MapaOBSOLETE.LEFT_OFFSET_FROM_PANEL)/(MapaOBSOLETE.GAP_BEETWEEN_SQUARES+ MapaOBSOLETE.SIZE_OF_SQUARE);
+				if (((e.getX()- MapaOBSOLETE.LEFT_OFFSET_FROM_PANEL)%(MapaOBSOLETE.GAP_BEETWEEN_SQUARES+ MapaOBSOLETE.SIZE_OF_SQUARE))> MapaOBSOLETE.SIZE_OF_SQUARE) return; // strzal w przestrzen miedzy polami
+				if (e.getX()< MapaOBSOLETE.LEFT_OFFSET_FROM_PANEL) return; //strzal na lewo od pol
+				if (e.getX()>(MapaOBSOLETE.LEFT_OFFSET_FROM_PANEL+(MapaOBSOLETE.PLANSZA_MAX_X*(MapaOBSOLETE.GAP_BEETWEEN_SQUARES+ MapaOBSOLETE.SIZE_OF_SQUARE)))) return; //strzal na prawo od pol
+				int yy=(MapaOBSOLETE.PLANSZA_MAX_Y-1)-((e.getY()- MapaOBSOLETE.UPPER_OFFSET_FROM_PANEL)/(MapaOBSOLETE.GAP_BEETWEEN_SQUARES+ MapaOBSOLETE.SIZE_OF_SQUARE));
+				if (((e.getY()- MapaOBSOLETE.UPPER_OFFSET_FROM_PANEL)%(MapaOBSOLETE.GAP_BEETWEEN_SQUARES+ MapaOBSOLETE.SIZE_OF_SQUARE)> MapaOBSOLETE.SIZE_OF_SQUARE)) return;
+				if (e.getY()>(MapaOBSOLETE.PLANSZA_MAX_Y*(MapaOBSOLETE.GAP_BEETWEEN_SQUARES+ MapaOBSOLETE.SIZE_OF_SQUARE)+ MapaOBSOLETE.UPPER_OFFSET_FROM_PANEL- MapaOBSOLETE.GAP_BEETWEEN_SQUARES)) return; //strzal na dol od pol
+				if (e.getY()< MapaOBSOLETE.UPPER_OFFSET_FROM_PANEL) return; //strzal na gore od pol
 		//		if (Logger.isDebugEnabled())   System.out.println("Strzal trafil w pole ("+xx+","+yy+")");
 		System.out.println("Wprowadzono strzal z GUI na pozycje ("+xx+","+yy+")");
 //System.out.flush();

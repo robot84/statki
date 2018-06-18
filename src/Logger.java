@@ -1,10 +1,14 @@
-public class Logger{
+class Logger{
     //DEBUG < INFO < WARN < ERROR < FATAL
         static boolean debugEnabled=false; // Main -d
         static boolean deepDebugEnabled=false; // Main -dd
+    private static final int START_FROM_PARENT_OF_MY_PARENT_CALL=2;
 
     private static void printMessage(String level, String message){
         System.out.println(level+" "+message);
+    }
+    private static void printMessage(String currentMethod, String level, String message){
+        System.out.println(currentMethod+":: "+level+" "+message);
     }
 
     static boolean isDebugEnabled(){
@@ -32,6 +36,16 @@ public class Logger{
     }
     static void deepDebug(String message){
     if (deepDebugEnabled) printMessage("DeepDebug:",message);
+}
+
+static void stackTrace(){
+
+    StackTraceElement[] myTrace=Thread.currentThread().getStackTrace();
+    System.out.println("Thread.currentThread().getStackTrace() said:");
+    for(int i=START_FROM_PARENT_OF_MY_PARENT_CALL;(i<myTrace.length) &&
+            (! myTrace[i].toString().substring(0,5).equals("javax"));i++)
+        System.out.println(myTrace[i]);
+
 }
 
 }

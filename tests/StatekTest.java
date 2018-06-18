@@ -94,8 +94,8 @@ public class StatekTest{
 		
 	@org.junit.Test public void test_SetPoleBADVALUE() {
 		// x,y - wymuszenia (wejscie)
-		int[] x = {-5, 4, Pole.SHIP_SHOOTED, Mapa.PLANSZA_MAX_X + 1};
-		int[] y = {-5, 4, Pole.SHIP_SHOOTED, Mapa.PLANSZA_MAX_Y + 1};
+		int[] x = {-5, 4, Pole.SHIP_SHOOTED, MapaOBSOLETE.PLANSZA_MAX_X + 1};
+		int[] y = {-5, 4, Pole.SHIP_SHOOTED, MapaOBSOLETE.PLANSZA_MAX_Y + 1};
 		// Out_x,Out_y - odpowiedzi (oczekiwane dane na wyjsciu)
 		int[] Out_x = {-1, 4, -1, -1};
 		int[] Out_y = {-1, 4, -1, -1};
@@ -119,8 +119,8 @@ public class StatekTest{
 		int[] y={3,3,3,3};
 		int[] celne_x=x;
 		int[] celne_y=y;
-		int[] niecelne_x = {-1, 2, 7, Mapa.PLANSZA_MAX_X+1};
-		int[] niecelne_y = {-1, 2, 7, Mapa.PLANSZA_MAX_Y+1};
+		int[] niecelne_x = {-1, 2, 7, MapaOBSOLETE.PLANSZA_MAX_X+1};
+		int[] niecelne_y = {-1, 2, 7, MapaOBSOLETE.PLANSZA_MAX_Y+1};
 
 		Statek statek=new Statek();
 		Pole[] p= StatekTestHelper.utworzPola(Statek.MAX_ILOSC_MASZTOW);

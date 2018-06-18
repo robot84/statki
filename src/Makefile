@@ -2,7 +2,7 @@ BUILD_NR := $(shell cat BUILD)
 BUILD_NR_MINUS_1 := $(shell cat BUILD_MINUS_1)
 ; COMPILE_OPTIONS := -d ../class
 
-all1: GUI.class StaticVariables.class MacierzSasiedztwa.class Mapa.class ObrazekKoncaGry.class Pole.class \
+all1: GUI.class StaticVariables.class MacierzSasiedztwa.class MapaOBSOLETE.class ObrazekKoncaGry.class Pole.class \
 PoleMacierzySasiedztwa.class Statek.class Main.class
 	echo Sprawdzam czy jest cos do roboty...
 	make build
@@ -16,8 +16,8 @@ StaticVariables.class: StaticVariables.java
 MacierzSasiedztwa.class: MacierzSasiedztwa.java
 	javac $(COMPILE_OPTIONS) MacierzSasiedztwa.java
 
-Mapa.class: Mapa.java
-	javac $(COMPILE_OPTIONS) Mapa.java
+MapaOBSOLETE.class: MapaOBSOLETE.java
+	javac $(COMPILE_OPTIONS) MapaOBSOLETE.java
 
 ObrazekKoncaGry.class: ObrazekKoncaGry.java
 	javac $(COMPILE_OPTIONS) ObrazekKoncaGry.java
@@ -44,15 +44,15 @@ archive:
 
 
 
-test: Statek.class Mapa.class Pole.class
-	bash -c 'time javac $(COMPILE_OPTIONS) PoleTest.java StatekTest.java MapaTest.java GUITest.java'
+test: Statek.class MapaOBSOLETE.class Pole.class
+	bash -c 'time javac $(COMPILE_OPTIONS) PoleTest.java StatekTest.java MapaOBSOLETETest.java GUITest.java'
 	java PoleTest
 	java StatekTest
-	java MapaTest
+	java MapaOBSOLETETest
 	java GUITest
 
-mapa:	Mapa.java
-	bash -c 'time javac $(COMPILE_OPTIONS) Mapa.java'
+mapaOBSOLETE:	MapaOBSOLETE.java
+	bash -c 'time javac $(COMPILE_OPTIONS) MapaOBSOLETE.java'
 	java MapaGUI
 all: 
 	bash -c 'time javac $(COMPILE_OPTIONS) *.java'

@@ -1,4 +1,4 @@
-*DONE klasa Mapa nie rozszerza klasy StaticVariables bo juz rozszerza inna klase. jakos trza to ugrysc, likwidujac rozszerzanie przez nia klasy JPanel
+*DONE klasa MapaOBSOLETE nie rozszerza klasy StaticVariables bo juz rozszerza inna klase. jakos trza to ugrysc, likwidujac rozszerzanie przez nia klasy JPanel
 *DONE -hall of fame - w ilu ruchach zatopiles wsio.
 - hall of fame  przez neta dostepna
 *DONE -obsluga myszy do strzalow
