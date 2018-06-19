@@ -1,7 +1,7 @@
 // public / protected / private abstract static final <method/var name>
 public class Main {
 
-    public static final String BUILD_NUMBER = "865";
+    public static final String BUILD_NUMBER = "889";
     static final String APP_VERSION="v0.9 build "+BUILD_NUMBER;
 
 	public static void main (String[] args) {

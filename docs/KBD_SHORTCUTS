@@ -4,6 +4,8 @@ Ctrl+K commit
 Ctrl+F12 wyswietla okno ze struktura pliku (nazwy metod)
 Ctrl+Shift+F  - szukaj wszedzie
 Ctrl-Shift-/ (un)komentuje zaznaczony blok
+Alt+ArrowUp/Down - poprzednia/nastepna metoda w kodzie
+
 
 Ant->init->Execute on->Before Compilation
 File->Settings->Editor->Font->16

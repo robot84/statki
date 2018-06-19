@@ -1,11 +1,14 @@
  class GameModel {
-    int numerRuchu;
+     /**
+      * kolejka - turn number
+      */
+    int kolejka;
 
-     int getNumerRuchu() {
-        return numerRuchu;
+     int getKolejka() {
+        return kolejka;
     }
 
-    void setNumerRuchu(int numerRuchu) {
-        this.numerRuchu = numerRuchu;
+    void setKolejka(int kolejka) {
+        this.kolejka = kolejka;
     }
 }

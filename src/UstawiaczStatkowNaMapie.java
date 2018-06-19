@@ -8,7 +8,7 @@ class UstawiaczStatkowNaMapie {
         }
 
         for(int i = 0;i<flota.length;i++){
-            flota[i].przygotujDoPonownegoUstawienia();
+            flota[i].recycle();
             for(int w=0;w<MAX_PROB_USTAWIEN_STATKU;w++)
                 if ( (!flota[i].ustawLosowoPolozenieStatku(mapaOBSOLETE)) ) {
                     // co 10 nieudanych prob pisz blad (przy probach 9,19,29,...)

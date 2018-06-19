@@ -176,3 +176,33 @@ Inaczej kazdy obiekt dostalby swoja instancje i byloby ok.
 Wniosek: uwazaj na modyfikacje zmiennych statycznych!! Modyfikujesz je w jednym obiekcie, a
 inny obiekt widzi te zmiane. I jesli nie planowales uzyc nigdy wiecej niz jednego... to po Ci static?
 
+
+
+Tablice 2D:
+int[][] tab= new int[10][2]; //int[wierszy][kolumn]
+int[5][1]=3;
+
+nazwa[wiersz][kolumna];
+czemu tak? bo jak masz tablice 1D, to wyobrazasz sobie ja tak:
+
++-------+
+|  a[0] |
++-------+
+|  a[1] |
++-------+
+|  a[2] |
++-------+
+|  a[3] |
++-------+
+
+
+Wiec teraz drugi wymiar dodajemy w innym kierunku - beda to nastepne kolumny:
++---------+---------+
+| a[0][0] | a[0][1] |
++---------+---------+
+| a[1][0] | a[1][1] |
++---------+---------+
+| a[2][0] | a[2][1] |
++---------+---------+
+| a[3][0] | a[3][1] |
++---------+---------+

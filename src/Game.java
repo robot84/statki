@@ -56,7 +56,7 @@ void rozpocznij(){
 	void ustawStatki(){
 		final  int MAX_PROB_USTAWIEN_STATKU=1000;
 		for(int i = 0; i< MapaOBSOLETE.ILOSC_STATKOW_NA_PLANSZY; i++){
-			statkiNaPlanszy[i].przygotujDoPonownegoUstawienia();
+			statkiNaPlanszy[i].recycle();
 			for(int w=0;w<MAX_PROB_USTAWIEN_STATKU;w++) 
 				if ( (!statkiNaPlanszy[i].ustawLosowoPolozenieStatku(mapaOBSOLETE)) ) {
 				// co 10 nieudanych prob pisz blad (przy probach 9,19,29,...)

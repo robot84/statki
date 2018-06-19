@@ -9,6 +9,13 @@ class Statek  {
 	private boolean zatopiony;
 
 
+	public	String toString(){
+		String doZwrotu="Pozycja statku: ";
+		for (int i=0;i<iloscMasztow;i++){
+			doZwrotu=doZwrotu+"("+pozycjaStatkuMaszt[i].x+","+pozycjaStatkuMaszt[i].y+")";
+		}
+		return doZwrotu;
+}
 	Statek(int ilosc_masztow){
 	iloscMasztow=ilosc_masztow;
 	pozycjaStatkuMaszt=new Pole[iloscMasztow];
@@ -36,7 +43,13 @@ if (maszt >= 0 & maszt <iloscMasztow)
 	return iloscMasztow;
 	}
 
-	void przygotujDoPonownegoUstawienia(){
+	/**
+	 * This method "refresh" a ship. Now it will look as new from factory.
+	 * If it was sink, now it is ready to cruise
+	 * Position of ship is undeterminated.
+	 *
+	 */
+	void recycle(){
 	for (int i=0;i<iloscMasztow;i++){
 		pozycjaStatkuMaszt[i].x=0;
 		pozycjaStatkuMaszt[i].y=0;
@@ -75,11 +88,6 @@ return masztTrafiony[maszt];
 		for (int i=0;i<iloscMasztow;i++) System.out.println(" x: " + pozycjaStatkuMaszt[i].getX() + " y: " + pozycjaStatkuMaszt[i].getY());
 	}
 
-	void getAll(){
-		System.out.println("-statek.getAll() zatopiony: " + zatopiony);
-		for (int i=0;i<iloscMasztow;i++) System.out.println(" x: " + pozycjaStatkuMaszt[i].getX() + " y: " + pozycjaStatkuMaszt[i].getY());
-	}
-
 	boolean ustawLosowoPolozenieStatku(MapaOBSOLETE m){
 		// zwraca true, jezeli udalo sie ustawic statek
 		// jezeli sie nie udalo, to false.
@@ -101,14 +109,14 @@ return masztTrafiony[maszt];
 				for (int i=0;i<iloscMasztow;i++){
 					pozycjaStatkuMaszt[i].x=x;
 					pozycjaStatkuMaszt[i].y=y+i;
-					}
+				}
 				return true;
 			}
 			else return false;
 		}
 		else
 		{
-		// 1 oznacza poziom
+			// 1 oznacza poziom
 			boolean moznaPostawic=true;
 			for (int i=0;i<iloscMasztow;i++) moznaPostawic&=m.moznaPostawicStatek(y,x+i);
 			if (moznaPostawic) {
@@ -116,13 +124,22 @@ return masztTrafiony[maszt];
 				for (int i=0;i<iloscMasztow;i++){
 					pozycjaStatkuMaszt[i].x=x+i;
 					pozycjaStatkuMaszt[i].y=y;
-					}
+				}
 				return true;
 			}
 			else return false;
 		} // end of if
 
 	} // end of method
+
+	void printAllInformations(){
+		System.out.println("-statek.getAll() zatopiony: " + zatopiony);
+		for (int i=0;i<iloscMasztow;i++) System.out.println(" x: " + pozycjaStatkuMaszt[i].getX() + " y: " + pozycjaStatkuMaszt[i].getY());
+	}
+
+	void ustawPolozenie(){
+
+	}
 
 	static Pole[] generujPolozenie(int i){
 	// metoda uzywana zanim powstal random generator. moze byc przydatna przy testach?
@@ -175,6 +192,15 @@ return masztTrafiony[maszt];
 			System.out.println("-->"+i);
 			pozycjaStatkuMaszt[i].setX(po[i].getX());
 			pozycjaStatkuMaszt[i].setY(po[i].getY());
+		}
+		// tu byl blad. 17:25 znaleziony. szukany od
+	}
+
+	void ustawPozycje(Pole[] pozycja){
+		for (int i=0;i<iloscMasztow;i++){
+			System.out.println("-->"+i);
+			pozycjaStatkuMaszt[i].setX(pozycja[i].getX());
+			pozycjaStatkuMaszt[i].setY(pozycja[i].getY());
 		}
 		// tu byl blad. 17:25 znaleziony. szukany od
 	}
