@@ -35,7 +35,10 @@ class Logger{
         if (debugEnabled) printMessage("Debug:",message);
     }
     static void deepDebug(String message){
-    if (deepDebugEnabled) printMessage("DeepDebug:",message);
+    if (deepDebugEnabled) {
+        StackTraceElement[] myTrace=Thread.currentThread().getStackTrace();
+        printMessage("DeepDebug:"+myTrace[3],message);
+    }
 }
 
 static void stackTrace(){
